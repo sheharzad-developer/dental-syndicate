@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Behzad Dental Clinic - Your Smile, Our Priority{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="{{ url_for('static', filename='images/dental-syndicate-logo-compact.svg') }}" alt="Dental Syndicate" class="logo-img">
+                <span class="logo-text">Dental Syndicate</span>
+            </div>
+            
+            <!-- Mobile menu button -->
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="{{ url_for('home') }}" class="nav-link {% if request.endpoint == 'home' %}active{% endif %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url_for('about') }}" class="nav-link {% if request.endpoint == 'about' %}active{% endif %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url_for('doctors') }}" class="nav-link {% if request.endpoint == 'doctors' %}active{% endif %}">Doctors</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url_for('contact') }}" class="nav-link {% if request.endpoint == 'contact' %}active{% endif %}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url_for('appointment') }}" class="nav-link appointment-btn">Appointment</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-item">
+                <div class="footer-icon">📍</div>
+                <div class="footer-text">
+                    <div>131-BWD, Fourth Floor، Commercial Broadway, D.H.A. Commercial Broadway DHA Phase 8, Lahore, 54000</div>
+                </div>
+            </div>
+            <div class="footer-item">
+                <div class="footer-icon">📞</div>
+                <div class="footer-text">+92 331 4864899</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

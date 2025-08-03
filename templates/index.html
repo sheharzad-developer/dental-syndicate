@@ -1,0 +1,711 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section - Revolutionary Design -->
+<section class="hero">
+    <div class="hero-background">
+        <div class="hero-particles"></div>
+        <div class="hero-waves">
+            <div class="wave wave-1"></div>
+            <div class="wave wave-2"></div>
+            <div class="wave wave-3"></div>
+        </div>
+    </div>
+    
+    <div class="hero-container">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-icon">🏥</span>
+                <span class="badge-text">Premium Dental Care</span>
+                <div class="badge-glow"></div>
+            </div>
+            
+            <h1 class="hero-title">
+                <span class="title-line title-line-1">Your Smile,</span>
+                <span class="title-line title-line-2">Our Priority</span>
+                <div class="title-underline"></div>
+            </h1>
+            
+            <p class="hero-subtitle">
+                <span class="subtitle-highlight">Expert Care</span> • 
+                <span class="subtitle-highlight">Advanced Technology</span> • 
+                <span class="subtitle-highlight">Healthy Smiles for Life</span>
+            </p>
+            
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="stat-number">2000+</div>
+                    <div class="stat-label">Happy Patients</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Success Rate</div>
+                </div>
+            </div>
+            
+            <!-- <div class="hero-actions">
+                <a href="{{ url_for('appointment') }}" class="hero-btn primary">
+                    <span class="btn-text">Book Appointment</span>
+                    <span class="btn-icon">📅</span>
+                    <div class="btn-glow"></div>
+                </a>
+                <a href="{{ url_for('contact') }}" class="hero-btn secondary">
+                    <span class="btn-text">Emergency Care</span>
+                    <span class="btn-icon">🚨</span>
+                </a>
+            </div> -->
+            
+            <div class="hero-trust">
+                <div class="trust-item">
+                    <span class="trust-icon">✓</span>
+                    <span class="trust-text">Licensed & Certified</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">✓</span>
+                    <span class="trust-text">Latest Technology</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">✓</span>
+                    <span class="trust-text">PMC Registered</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-visual">
+            <div class="visual-container">
+                <div class="floating-card card-1">
+                    <div class="card-icon">🦷</div>
+                    <div class="card-text">Professional Care</div>
+                </div>
+                <div class="floating-card card-2">
+                    <div class="card-icon">⭐</div>
+                    <div class="card-text">5-Star Rating</div>
+                </div>
+                <div class="floating-card card-3">
+                    <div class="card-icon">🏆</div>
+                    <div class="card-text">Award Winning</div>
+                </div>
+                <div class="hero-image-container">
+                    <div class="image-glow"></div>
+                    <!-- <img src="{{ url_for('static', filename='images/dr-behzad-large.jpg') }}" alt="Dr. Behzad Salahuddin" class="hero-image"> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<!-- Services Section - Next Level Design -->
+<section class="services">
+    <div class="services-background">
+        <div class="services-pattern"></div>
+    </div>
+    
+    <div class="services-header">
+        <div class="section-badge">
+            <span class="badge-icon">⚡</span>
+            <span class="badge-text">Our Expertise</span>
+        </div>
+        <h2 class="section-title">Comprehensive Dental Solutions</h2>
+        <p class="section-subtitle">Advanced treatments tailored to your unique needs with state-of-the-art technology</p>
+    </div>
+    
+    <div class="services-grid">
+        <div class="service-card card-premium">
+            <div class="service-card-inner">
+                <div class="service-header">
+                    <div class="service-icon-container">
+                        <div class="service-icon">🦷</div>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <div class="service-badge">Most Popular</div>
+                </div>
+                <div class="service-content">
+                    <h3 class="service-title">General Dentistry</h3>
+                    <p class="service-description">Comprehensive oral health care including cleanings, fillings, and preventive treatments</p>
+                    <div class="service-features">
+                        <div class="feature-item">✓ Regular Check-ups</div>
+                        <div class="feature-item">✓ Cavity Treatment</div>
+                        <div class="feature-item">✓ Preventive Care</div>
+                    </div>
+                </div>
+                <div class="service-footer">
+                    <a href="{{ url_for('appointment') }}" class="service-btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="service-card">
+            <div class="service-card-inner">
+                <div class="service-header">
+                    <div class="service-icon-container">
+                        <div class="service-icon">✨</div>
+                        <div class="icon-glow"></div>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <h3 class="service-title">Cosmetic Dentistry</h3>
+                    <p class="service-description">Transform your smile with whitening, veneers, and aesthetic dental procedures</p>
+                    <div class="service-features">
+                        <div class="feature-item">✓ Teeth Whitening</div>
+                        <div class="feature-item">✓ Veneers</div>
+                        <div class="feature-item">✓ Smile Makeover</div>
+                    </div>
+                </div>
+                <div class="service-footer">
+                    <a href="{{ url_for('appointment') }}" class="service-btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="service-card">
+            <div class="service-card-inner">
+                <div class="service-header">
+                    <div class="service-icon-container">
+                        <div class="service-icon">🦷</div>
+                        <div class="icon-glow"></div>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <h3 class="service-title">Orthodontics</h3>
+                    <p class="service-description">Straighten your teeth with modern braces and clear aligner solutions</p>
+                    <div class="service-features">
+                        <div class="feature-item">✓ Traditional Braces</div>
+                        <div class="feature-item">✓ Clear Aligners</div>
+                        <div class="feature-item">✓ Bite Correction</div>
+                    </div>
+                </div>
+                <div class="service-footer">
+                    <a href="{{ url_for('appointment') }}" class="service-btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="service-card card-featured">
+            <div class="service-card-inner">
+                <div class="service-header">
+                    <div class="service-icon-container">
+                        <div class="service-icon">🏆</div>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <div class="service-badge">Specialty</div>
+                </div>
+                <div class="service-content">
+                    <h3 class="service-title">Dental Implants</h3>
+                    <p class="service-description">Permanent tooth replacement solutions with titanium implants and natural-looking crowns</p>
+                    <div class="service-features">
+                        <div class="feature-item">✓ Single Implants</div>
+                        <div class="feature-item">✓ Full Mouth Restoration</div>
+                        <div class="feature-item">✓ Implant Crowns</div>
+                    </div>
+                </div>
+                <div class="service-footer">
+                    <a href="{{ url_for('appointment') }}" class="service-btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Doctors Section -->
+<section class="doctors">
+    <div class="doctors-hero">
+        <div class="doctors-hero-content">
+            <div class="hero-text">
+                <span class="hero-badge">✨ Meet Our Expert Team</span>
+                <h2>Exceptional Dental Care</h2>
+                <p>Experience world-class dental treatment with our highly qualified and dedicated professionals</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="doctors-showcase">
+        <!-- Featured Doctor - Large Card -->
+        <div class="featured-doctor-card">
+            <div class="featured-doctor-overlay"></div>
+            <div class="featured-doctor-image">
+                <img src="{{ url_for('static', filename='images/dr-behzad-large.jpg') }}" alt="Dr. Behzad Salahuddin">
+                <div class="image-overlay"></div>
+            </div>
+            <div class="featured-doctor-content">
+                <div class="featured-badge">Lead Dentist</div>
+                <h3>Dr. Behzad Salahuddin</h3>
+                <div class="credentials-badge">BDS, MSC</div>
+                <p class="featured-description">
+                    Leading dental specialist with expertise in Dental Implants, Crowns & Bridges, and Full Mouth Rehabilitation. 
+                    Committed to providing exceptional dental care with advanced qualifications.
+                </p>
+                <div class="specialties-preview">
+                    <span class="specialty-tag">🦷 Dental Implants</span>
+                    <span class="specialty-tag">👑 Crowns & Bridges</span>
+                    <span class="specialty-tag">🔬 Prosthodontics</span>
+                </div>
+                <div class="featured-actions">
+                    <a href="{{ url_for('doctors') }}" class="primary-btn">View Profile</a>
+                    <a href="{{ url_for('appointment') }}" class="secondary-btn">Book Appointment</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Secondary Doctor Card -->
+        <div class="secondary-doctor-card">
+            <div class="card-glow"></div>
+            <div class="secondary-doctor-image">
+                <img src="{{ url_for('static', filename='images/dr-ehsan.jpg') }}" alt="Dr. Ehsan Rathore">
+            </div>
+            <div class="secondary-doctor-content">
+                <div class="doctor-header">
+                    <h4>Dr. Ehsan Rathore</h4>
+                    <span class="credentials">BDS, MCPS</span>
+                </div>
+                <p class="secondary-description">
+                    Dedicated dentist providing comprehensive dental care with advanced qualifications and PMC membership.
+                </p>
+                <div class="secondary-stats">
+                    <div class="stat-item">
+                        <span class="stat-icon">🏥</span>
+                        <span class="stat-text">Dental Syndicate</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-icon">📞</span>
+                        <span class="stat-text">+92 331 4864899</span>
+                    </div>
+                </div>
+                <a href="{{ url_for('doctors') }}" class="view-profile-btn">View Full Profile →</a>
+            </div>
+        </div>
+        
+        <!-- Quick Actions Card -->
+        <div class="quick-actions-card">
+            <div class="actions-header">
+                <h4>Quick Actions</h4>
+                <p>Get started with your dental care journey</p>
+            </div>
+            <div class="action-buttons">
+                <a href="{{ url_for('appointment') }}" class="action-btn emergency">
+                    <span class="action-icon">🚨</span>
+                    <div class="action-text">
+                        <strong>Emergency Care</strong>
+                        <small>Urgent dental issues</small>
+                    </div>
+                </a>
+                <a href="{{ url_for('appointment') }}" class="action-btn consultation">
+                    <span class="action-icon">💬</span>
+                    <div class="action-text">
+                        <strong>Consultation</strong>
+                        <small>Regular check-up</small>
+                    </div>
+                </a>
+                <a href="{{ url_for('contact') }}" class="action-btn contact">
+                    <span class="action-icon">📍</span>
+                    <div class="action-text">
+                        <strong>Visit Us</strong>
+                        <small>Dental Syndicate</small>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about">
+    <div class="about-container">
+        <h2>About Dental Syndicate</h2>
+        <p class="about-text">
+            Welcome to Dental Syndicate, where we are committed to providing exceptional dental care in a comfortable and 
+            friendly environment. Equipped with state-of-the-art technology and staffed by experienced dental professionals, we 
+            offer comprehensive services to meet all your oral health needs. Our mission is to create beautiful, healthy smiles while 
+            ensuring every patient receives personalized attention and care.
+        </p>
+    </div>
+</section>
+
+<!-- Statistics Section - Spectacular Upgrade -->
+<section class="statistics">
+    <div class="stats-background">
+        <div class="stats-particles"></div>
+        <div class="stats-waves">
+            <div class="stat-wave wave-1"></div>
+            <div class="stat-wave wave-2"></div>
+        </div>
+    </div>
+    
+    <div class="stats-content">
+        <div class="stats-header">
+            <div class="section-badge">
+                <span class="badge-icon">📊</span>
+                <span class="badge-text">Our Impact</span>
+            </div>
+            <h2 class="section-title">Trusted by Thousands</h2>
+            <p class="section-subtitle">Numbers that speak for our commitment to excellence in dental care</p>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card stat-primary">
+                <div class="stat-card-inner">
+                    <div class="stat-icon-container">
+                        <div class="stat-icon">🏆</div>
+                        <div class="stat-glow"></div>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" data-target="15">0</h3>
+                        <div class="stat-suffix">+</div>
+                    </div>
+                    <p class="stat-label">Years of Excellence</p>
+                    <div class="stat-description">Serving the Lahore community with dedicated dental care since 2009</div>
+                </div>
+                <div class="stat-progress">
+                    <div class="progress-bar" data-width="95%"></div>
+                </div>
+            </div>
+            
+            <div class="stat-card stat-featured">
+                <div class="stat-card-inner">
+                    <div class="stat-icon-container">
+                        <div class="stat-icon">😊</div>
+                        <div class="stat-glow"></div>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" data-target="5000">0</h3>
+                        <div class="stat-suffix">+</div>
+                    </div>
+                    <p class="stat-label">Happy Patients</p>
+                    <div class="stat-description">Transformed smiles and improved oral health across Pakistan</div>
+                </div>
+                <div class="stat-progress">
+                    <div class="progress-bar" data-width="100%"></div>
+                </div>
+            </div>
+            
+            <div class="stat-card stat-success">
+                <div class="stat-card-inner">
+                    <div class="stat-icon-container">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-glow"></div>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" data-target="99">0</h3>
+                        <div class="stat-suffix">%</div>
+                    </div>
+                    <p class="stat-label">Success Rate</p>
+                    <div class="stat-description">Exceptional treatment outcomes with the latest dental technology</div>
+                </div>
+                <div class="stat-progress">
+                    <div class="progress-bar" data-width="99%"></div>
+                </div>
+            </div>
+            
+            <div class="stat-card stat-expertise">
+                <div class="stat-card-inner">
+                    <div class="stat-icon-container">
+                        <div class="stat-icon">🦷</div>
+                        <div class="stat-glow"></div>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" data-target="1000">0</h3>
+                        <div class="stat-suffix">+</div>
+                    </div>
+                    <p class="stat-label">Procedures Completed</p>
+                    <div class="stat-description">From routine care to complex dental implants and reconstructions</div>
+                </div>
+                <div class="stat-progress">
+                    <div class="progress-bar" data-width="90%"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="stats-achievements">
+            <div class="achievement-item">
+                <div class="achievement-icon">🏅</div>
+                <div class="achievement-text">PMC Certified</div>
+            </div>
+            <div class="achievement-item">
+                <div class="achievement-icon">⭐</div>
+                <div class="achievement-text">5-Star Rated</div>
+            </div>
+            <div class="achievement-item">
+                <div class="achievement-icon">🔬</div>
+                <div class="achievement-text">Advanced Technology</div>
+            </div>
+            <div class="achievement-item">
+                <div class="achievement-icon">❤️</div>
+                <div class="achievement-text">Patient Focused</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Patient Testimonials Section -->
+<!-- <section class="testimonials">
+    <div class="testimonials-background">
+        <div class="testimonials-pattern"></div>
+    </div>
+    
+    <div class="testimonials-header">
+        <div class="section-badge">
+            <span class="badge-icon">💬</span>
+            <span class="badge-text">Patient Stories</span>
+        </div>
+        <h2 class="section-title">What Our Patients Say</h2>
+        <p class="section-subtitle">Real experiences from our valued patients who trusted us with their smiles</p>
+    </div>
+    
+    <div class="testimonials-container">
+        <div class="testimonial-card featured">
+            <div class="testimonial-header">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="quote-icon">"</div>
+            </div>
+            <p class="testimonial-text">
+                "Dr. Behzad and his team provided exceptional care during my dental implant procedure. 
+                The professionalism and advanced technology made the entire experience comfortable and successful."
+            </p>
+            <div class="testimonial-author">
+                <div class="author-info">
+                    <h4 class="author-name">Sarah Ahmed</h4>
+                    <p class="author-detail">Dental Implant Patient</p>
+                </div>
+                <div class="testimonial-badge">Verified Patient</div>
+            </div>
+        </div>
+        
+        <div class="testimonial-card">
+            <div class="testimonial-header">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="quote-icon">"</div>
+            </div>
+            <p class="testimonial-text">
+                "Outstanding cosmetic dentistry work! My smile transformation exceeded all expectations. 
+                Highly recommend Dental Syndicate for anyone looking for quality dental care."
+            </p>
+            <div class="testimonial-author">
+                <div class="author-info">
+                    <h4 class="author-name">Ahmed Hassan</h4>
+                    <p class="author-detail">Cosmetic Dentistry</p>
+                </div>
+                <div class="testimonial-badge">Verified Patient</div>
+            </div>
+        </div>
+        
+        <div class="testimonial-card">
+            <div class="testimonial-header">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="quote-icon">"</div>
+            </div>
+            <p class="testimonial-text">
+                "The best dental clinic in Lahore! Professional staff, modern equipment, and excellent results. 
+                My family and I are grateful for the comprehensive care we received."
+            </p>
+            <div class="testimonial-author">
+                <div class="author-info">
+                    <h4 class="author-name">Fatima Khan</h4>
+                    <p class="author-detail">General Dentistry</p>
+                </div>
+                <div class="testimonial-badge">Verified Patient</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="testimonials-cta">
+        <p>Join thousands of satisfied patients</p>
+        <a href="{{ url_for('appointment') }}" class="testimonials-btn">
+            <span class="btn-text">Start Your Journey</span>
+            <span class="btn-icon">✨</span>
+        </a>
+    </div>
+</section> -->
+
+<!-- Google Reviews Section -->
+<section class="google-reviews">
+    <div class="reviews-background">
+        <div class="reviews-particles"></div>
+        <div class="reviews-pattern"></div>
+    </div>
+    
+    <div class="google-reviews-container">
+        <div class="section-header">
+            <div class="section-badge">
+                <span class="badge-icon">⭐</span>
+                <span class="badge-text">Patient Reviews</span>
+            </div>
+            <h2 class="section-title">What Our Patients Say</h2>
+            <p class="section-subtitle">Real reviews from real patients who trust Dental Syndicate with their smiles</p>
+            <div class="google-rating-summary">
+                <div class="google-logo">
+                    <div class="google-icon">G</div>
+                    <span class="google-text">Google</span>
+                </div>
+                <div class="rating-display">
+                    <div class="stars-large">⭐⭐⭐⭐⭐</div>
+                    <div class="rating-info">
+                        <span class="rating-number">4.9</span>
+                        <span class="rating-text">out of 5 based on 127 reviews</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="reviews-grid">
+            <div class="review-card featured">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">
+                            <span class="avatar-initial">A</span>
+                        </div>
+                        <div class="reviewer-details">
+                            <h4 class="reviewer-name">Ahmad Hassan</h4>
+                            <p class="review-date">2 weeks ago</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="review-content">
+                    <p class="review-text">
+                        "Exceptional service! Dr. Behzad Salahuddin is incredibly skilled and made my dental implant procedure completely painless. The clinic is modern, clean, and the staff is very professional. Highly recommend Dental Syndicate for anyone looking for quality dental care in Lahore."
+                    </p>
+                </div>
+                <div class="review-footer">
+                    <span class="google-badge">Posted on Google</span>
+                </div>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">
+                            <span class="avatar-initial">S</span>
+                        </div>
+                        <div class="reviewer-details">
+                            <h4 class="reviewer-name">Sarah Khan</h4>
+                            <p class="review-date">1 month ago</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="review-content">
+                    <p class="review-text">
+                        "Best dental clinic in DHA! The doctors are highly qualified and use the latest technology. My family has been coming here for years and we've always received excellent treatment. The clinic is beautifully designed and very hygienic."
+                    </p>
+                </div>
+                <div class="review-footer">
+                    <span class="google-badge">Posted on Google</span>
+                </div>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">
+                            <span class="avatar-initial">M</span>
+                        </div>
+                        <div class="reviewer-details">
+                            <h4 class="reviewer-name">Muhammad Ali</h4>
+                            <p class="review-date">3 weeks ago</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="review-content">
+                    <p class="review-text">
+                        "Outstanding experience! Dr. Ehsan Rathore provided excellent care for my dental treatment. The clinic's location in Broadway Commercial is convenient and the appointment system is very efficient. Definitely the best dental care in Lahore."
+                    </p>
+                </div>
+                <div class="review-footer">
+                    <span class="google-badge">Posted on Google</span>
+                </div>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">
+                            <span class="avatar-initial">F</span>
+                        </div>
+                        <div class="reviewer-details">
+                            <h4 class="reviewer-name">Fatima Ahmed</h4>
+                            <p class="review-date">2 months ago</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="review-content">
+                    <p class="review-text">
+                        "Highly professional dental clinic with state-of-the-art equipment. The doctors explain everything clearly and make sure you're comfortable throughout the procedure. The results exceeded my expectations. Thank you Dental Syndicate!"
+                    </p>
+                </div>
+                <div class="review-footer">
+                    <span class="google-badge">Posted on Google</span>
+                </div>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">
+                            <span class="avatar-initial">R</span>
+                        </div>
+                        <div class="reviewer-details">
+                            <h4 class="reviewer-name">Rizwan Sheikh</h4>
+                            <p class="review-date">1 month ago</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="review-content">
+                    <p class="review-text">
+                        "Exceptional dental care! The clinic is beautifully designed and very clean. Both doctors are highly skilled and gentle. I had my crowns done here and the quality is outstanding. Strongly recommend for anyone seeking premium dental treatment."
+                    </p>
+                </div>
+                <div class="review-footer">
+                    <span class="google-badge">Posted on Google</span>
+                </div>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">
+                            <span class="avatar-initial">N</span>
+                        </div>
+                        <div class="reviewer-details">
+                            <h4 class="reviewer-name">Nida Malik</h4>
+                            <p class="review-date">2 weeks ago</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="review-content">
+                    <p class="review-text">
+                        "Amazing experience at Dental Syndicate! The staff is very friendly and professional. Dr. Behzad's expertise in prosthodontics is remarkable. The clinic uses advanced technology and maintains high hygiene standards. Five stars!"
+                    </p>
+                </div>
+                <div class="review-footer">
+                    <span class="google-badge">Posted on Google</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="reviews-cta">
+            <div class="reviews-cta-content">
+                <h3>Share Your Experience</h3>
+                <p>Help others discover quality dental care by leaving a review</p>
+                <div class="reviews-cta-buttons">
+                    <a href="https://www.google.com/search?q=dental+syndicate+lahore#lrd=0x39190f4fe88ee09f:0xf233bcb1f16efcef,1,,," target="_blank" class="google-review-btn">
+                        <span class="btn-icon">⭐</span>
+                        <span class="btn-text">Leave a Google Review</span>
+                    </a>
+                    <a href="{{ url_for('appointment') }}" class="appointment-btn">
+                        <span class="btn-text">Book Appointment</span>
+                        <span class="btn-icon">📅</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

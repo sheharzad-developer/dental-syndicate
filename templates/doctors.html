@@ -1,0 +1,408 @@
+{% extends "base.html" %}
+
+{% block title %}Our Doctors - Behzad Dental Clinic{% endblock %}
+
+{% block content %}
+<!-- Doctors Hero Section - Revolutionary Design -->
+<section class="doctors-hero">
+    <div class="doctors-hero-background">
+        <div class="doctors-hero-particles"></div>
+        <div class="doctors-hero-waves">
+            <div class="doctors-wave wave-1"></div>
+            <div class="doctors-wave wave-2"></div>
+            <div class="doctors-wave wave-3"></div>
+        </div>
+    </div>
+    
+    <div class="doctors-hero-container">
+        <div class="doctors-hero-content">
+            <div class="doctors-hero-badge">
+                <span class="badge-icon">👥</span>
+                <span class="badge-text">Expert Medical Team</span>
+                <div class="badge-glow"></div>
+            </div>
+            
+            <h1 class="doctors-hero-title">
+                <span class="title-line title-line-1">Meet Our</span>
+                <span class="title-line title-line-2">Expert Team</span>
+                <div class="title-underline"></div>
+            </h1>
+            
+            <p class="doctors-hero-subtitle">
+                <span class="subtitle-highlight">Experienced Professionals</span> • 
+                <span class="subtitle-highlight">Advanced Expertise</span> • 
+                <span class="subtitle-highlight">Compassionate Care</span>
+            </p>
+            
+            <div class="doctors-hero-stats">
+                <div class="hero-stat-item">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Expert Doctors</div>
+                </div>
+                <div class="hero-stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="hero-stat-item">
+                    <div class="stat-number">5000+</div>
+                    <div class="stat-label">Patients Treated</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="doctors-hero-visual">
+            <div class="team-showcase">
+                <div class="team-card card-1">
+                    <div class="team-icon">🏥</div>
+                    <h4>Board Certified</h4>
+                </div>
+                <div class="team-card card-2">
+                    <div class="team-icon">🎓</div>
+                    <h4>Advanced Training</h4>
+                </div>
+                <div class="team-card card-3">
+                    <div class="team-icon">⭐</div>
+                    <h4>Patient Rated</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Doctors Profiles Section -->
+<section class="doctors-profiles">
+    <div class="doctors-profiles-background">
+        <div class="profiles-pattern"></div>
+    </div>
+    
+    <div class="doctors-profiles-container">
+        <div class="section-header">
+            <div class="section-badge">
+                <span class="badge-icon">⚕️</span>
+                <span class="badge-text">Our Specialists</span>
+            </div>
+            <h2 class="section-title">Exceptional Dental Professionals</h2>
+            <p class="section-subtitle">Meet the experienced doctors who will take care of your oral health with precision and compassion</p>
+        </div>
+        
+        <!-- Dr. Behzad Salahuddin - Lead Specialist -->
+        <div class="doctor-profile-card featured">
+            <div class="doctor-card-background">
+                <div class="card-glow"></div>
+                <div class="card-particles"></div>
+            </div>
+            
+            <div class="doctor-profile-header">
+                <div class="doctor-badge">Lead Specialist</div>
+                <div class="doctor-rating">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <span class="rating-text">5.0 Patient Rating</span>
+                </div>
+            </div>
+            
+            <div class="doctor-profile-content">
+                <div class="doctor-image-container">
+                    <div class="doctor-image-glow"></div>
+                    <img src="{{ url_for('static', filename='images/dr-behzad.jpg') }}" alt="Dr. Behzad Salahuddin" class="doctor-image">
+                    <div class="doctor-experience-badge">15+ Years</div>
+                </div>
+                
+                <div class="doctor-info">
+                    <div class="doctor-name-section">
+                        <h2 class="doctor-name">Dr. Behzad Salahuddin</h2>
+                        <div class="doctor-credentials">
+                            <span class="credential-badge">BDS</span>
+                            <span class="credential-badge">MSC</span>
+                        </div>
+                    </div>
+                    
+                    <p class="doctor-bio">
+                        Dr. Behzad Salahuddin is the lead dental specialist at Dental Syndicate, bringing over 15 years of 
+                        exceptional experience in comprehensive dental care. With advanced qualifications in BDS and MSC, 
+                        Dr. Salahuddin specializes in complex dental implants, full mouth rehabilitations, and prosthodontic 
+                        treatments. He is a certified member of the Pakistan Medical Commission (PMC).
+                    </p>
+                    
+                    <div class="doctor-specialties-grid">
+                        <div class="specialty-category">
+                            <h4 class="category-title">
+                                <span class="category-icon">🦷</span>
+                                Primary Specializations
+                            </h4>
+                            <div class="specialty-tags">
+                                <span class="specialty-tag featured">Dental Implants</span>
+                                <span class="specialty-tag featured">Crowns & Bridges</span>
+                                <span class="specialty-tag featured">Full Mouth Rehabilitation</span>
+                                <span class="specialty-tag featured">Prosthodontic Treatment</span>
+                                <span class="specialty-tag">General Dentistry</span>
+                            </div>
+                        </div>
+                        
+                        <div class="specialty-category">
+                            <h4 class="category-title">
+                                <span class="category-icon">🎓</span>
+                                Education & Certifications
+                            </h4>
+                            <div class="education-items">
+                                <div class="education-item">
+                                    <div class="education-degree">Bachelor of Dental Surgery (BDS)</div>
+                                    <div class="education-detail">Comprehensive Dental Medicine</div>
+                                </div>
+                                <div class="education-item">
+                                    <div class="education-degree">Master of Science (MSC)</div>
+                                    <div class="education-detail">Advanced Dental Specialization</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="specialty-category">
+                            <h4 class="category-title">
+                                <span class="category-icon">🏆</span>
+                                Professional Memberships
+                            </h4>
+                            <div class="membership-items">
+                                <div class="membership-item">
+                                    <span class="membership-icon">🏅</span>
+                                    <span class="membership-text">Pakistan Medical Commission (PMC)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="doctor-contact-section">
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="contact-icon">📞</span>
+                                <span class="contact-text">+92 331 4864899</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">🏥</span>
+                                <span class="contact-text">Dental Syndicate</span>
+                            </div>
+                        </div>
+                        <a href="{{ url_for('appointment') }}" class="doctor-appointment-btn">
+                            <span class="btn-text">Book Consultation</span>
+                            <span class="btn-icon">📅</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Dr. Ehsan Rathore - Dental Specialist -->
+        <div class="doctor-profile-card">
+            <div class="doctor-card-background">
+                <div class="card-glow"></div>
+                <div class="card-particles"></div>
+            </div>
+            
+            <div class="doctor-profile-header">
+                <div class="doctor-badge">Dental Specialist</div>
+                <div class="doctor-rating">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <span class="rating-text">5.0 Patient Rating</span>
+                </div>
+            </div>
+            
+            <div class="doctor-profile-content">
+                <div class="doctor-image-container">
+                    <div class="doctor-image-glow"></div>
+                    <img src="{{ url_for('static', filename='images/dr-ehsan.jpg') }}" alt="Dr. Ehsan Rathore" class="doctor-image">
+                    <div class="doctor-experience-badge">10+ Years</div>
+                </div>
+                
+                <div class="doctor-info">
+                    <div class="doctor-name-section">
+                        <h2 class="doctor-name">Dr. Ehsan Rathore</h2>
+                        <div class="doctor-credentials">
+                            <span class="credential-badge">BDS</span>
+                            <span class="credential-badge">MCPS</span>
+                        </div>
+                    </div>
+                    
+                    <p class="doctor-bio">
+                        Dr. Ehsan Rathore is a skilled dental specialist at Dental Syndicate with over 10 years of dedicated 
+                        experience in comprehensive dental care. Holding advanced qualifications in BDS and MCPS, Dr. Rathore 
+                        provides exceptional general dentistry services with a focus on preventive care and patient comfort. 
+                        He is a certified member of the Pakistan Medical Commission (PMC).
+                    </p>
+                    
+                    <div class="doctor-specialties-grid">
+                        <div class="specialty-category">
+                            <h4 class="category-title">
+                                <span class="category-icon">🦷</span>
+                                Primary Specializations
+                            </h4>
+                            <div class="specialty-tags">
+                                <span class="specialty-tag featured">General Dentistry</span>
+                                <span class="specialty-tag">Preventive Care</span>
+                                <span class="specialty-tag">Oral Health</span>
+                                <span class="specialty-tag">Patient Care</span>
+                            </div>
+                        </div>
+                        
+                        <div class="specialty-category">
+                            <h4 class="category-title">
+                                <span class="category-icon">🎓</span>
+                                Education & Certifications
+                            </h4>
+                            <div class="education-items">
+                                <div class="education-item">
+                                    <div class="education-degree">Bachelor of Dental Surgery (BDS)</div>
+                                    <div class="education-detail">Comprehensive Dental Medicine</div>
+                                </div>
+                                <div class="education-item">
+                                    <div class="education-degree">Member College of Physicians & Surgeons (MCPS)</div>
+                                    <div class="education-detail">Advanced Medical Specialization</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="specialty-category">
+                            <h4 class="category-title">
+                                <span class="category-icon">🏆</span>
+                                Professional Memberships
+                            </h4>
+                            <div class="membership-items">
+                                <div class="membership-item">
+                                    <span class="membership-icon">🏅</span>
+                                    <span class="membership-text">Pakistan Medical Commission (PMC)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="doctor-contact-section">
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="contact-icon">📞</span>
+                                <span class="contact-text">+92 331 4864899</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">🏥</span>
+                                <span class="contact-text">Dental Syndicate</span>
+                            </div>
+                        </div>
+                        <a href="{{ url_for('appointment') }}" class="doctor-appointment-btn">
+                            <span class="btn-text">Book Consultation</span>
+                            <span class="btn-icon">📅</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Team Excellence Section -->
+<section class="team-excellence">
+    <div class="team-excellence-background">
+        <div class="excellence-pattern"></div>
+    </div>
+    
+    <div class="team-excellence-container">
+        <div class="section-header">
+            <div class="section-badge">
+                <span class="badge-icon">🏆</span>
+                <span class="badge-text">Team Excellence</span>
+            </div>
+            <h2 class="section-title">Why Choose Our Team?</h2>
+            <p class="section-subtitle">Our doctors combine advanced medical expertise with compassionate patient care</p>
+        </div>
+        
+        <div class="excellence-grid">
+            <div class="excellence-card">
+                <div class="excellence-icon-container">
+                    <div class="excellence-icon">🎓</div>
+                    <div class="icon-glow"></div>
+                </div>
+                <h3 class="excellence-title">Advanced Training</h3>
+                <p class="excellence-description">
+                    Our doctors hold advanced degrees and certifications, ensuring you receive the most current 
+                    and effective dental treatments available.
+                </p>
+                <div class="excellence-features">
+                    <div class="feature-item">✓ Board Certified</div>
+                    <div class="feature-item">✓ Continuing Education</div>
+                    <div class="feature-item">✓ Latest Techniques</div>
+                </div>
+            </div>
+            
+            <div class="excellence-card featured">
+                <div class="excellence-icon-container">
+                    <div class="excellence-icon">🔬</div>
+                    <div class="icon-glow"></div>
+                </div>
+                <h3 class="excellence-title">Technology Integration</h3>
+                <p class="excellence-description">
+                    We utilize state-of-the-art dental technology and equipment to provide precise, 
+                    comfortable, and efficient treatments for all our patients.
+                </p>
+                <div class="excellence-features">
+                    <div class="feature-item">✓ Digital Imaging</div>
+                    <div class="feature-item">✓ Laser Dentistry</div>
+                    <div class="feature-item">✓ 3D Planning</div>
+                </div>
+            </div>
+            
+            <div class="excellence-card">
+                <div class="excellence-icon-container">
+                    <div class="excellence-icon">❤️</div>
+                    <div class="icon-glow"></div>
+                </div>
+                <h3 class="excellence-title">Patient-Centered Care</h3>
+                <p class="excellence-description">
+                    Every treatment plan is personalized to meet your unique needs, ensuring comfortable 
+                    and effective dental care in a welcoming environment.
+                </p>
+                <div class="excellence-features">
+                    <div class="feature-item">✓ Personalized Plans</div>
+                    <div class="feature-item">✓ Comfort Focus</div>
+                    <div class="feature-item">✓ Clear Communication</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Schedule Consultation Section -->
+<section class="schedule-consultation">
+    <div class="consultation-background">
+        <div class="consultation-particles"></div>
+    </div>
+    
+    <div class="consultation-container">
+        <div class="consultation-content">
+            <h2>Ready to Meet Our Expert Team?</h2>
+            <p>Schedule a consultation with our experienced dental professionals and discover personalized care that transforms smiles</p>
+            
+            <div class="consultation-benefits">
+                <div class="benefit-item">
+                    <span class="benefit-icon">✓</span>
+                    <span class="benefit-text">Comprehensive Consultation</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">✓</span>
+                    <span class="benefit-text">Personalized Treatment Plan</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">✓</span>
+                    <span class="benefit-text">Expert Recommendations</span>
+                </div>
+            </div>
+            
+            <div class="consultation-actions">
+                <a href="{{ url_for('appointment') }}" class="consultation-btn primary">
+                    <span class="btn-text">Schedule Appointment</span>
+                    <span class="btn-icon">📅</span>
+                    <div class="btn-glow"></div>
+                </a>
+                <a href="{{ url_for('contact') }}" class="consultation-btn secondary">
+                    <span class="btn-text">Contact Us</span>
+                    <span class="btn-icon">📞</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

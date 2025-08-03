@@ -1,0 +1,331 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us - Behzad Dental Clinic{% endblock %}
+
+{% block content %}
+<!-- Contact Hero Section -->
+<section class="contact-hero">
+    <div class="contact-hero-background">
+        <div class="contact-hero-particles"></div>
+        <div class="contact-hero-waves">
+            <div class="contact-wave wave-1"></div>
+            <div class="contact-wave wave-2"></div>
+            <div class="contact-wave wave-3"></div>
+        </div>
+    </div>
+    
+    <div class="contact-hero-container">
+        <div class="contact-hero-content">
+            <div class="contact-hero-badge">
+                <div class="badge-glow"></div>
+                <span class="badge-icon">✨</span>
+                <span class="badge-text">Let's Connect</span>
+            </div>
+            
+            <h1 class="contact-hero-title">
+                <span class="title-line title-line-1">Get In Touch</span>
+                <span class="title-line title-line-2">With Excellence</span>
+                <div class="title-underline"></div>
+            </h1>
+            
+            <p class="contact-hero-subtitle">
+                Ready to transform your smile? <span class="subtitle-highlight">Connect with our expert team</span> 
+                and begin your journey to exceptional dental care.
+            </p>
+            
+            <div class="contact-hero-stats">
+                <div class="hero-stat">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Support</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="stat-number">5★</span>
+                    <span class="stat-label">Rating</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="stat-number">Fast</span>
+                    <span class="stat-label">Response</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-hero-visual">
+            <div class="floating-contact-elements">
+                <div class="floating-element element-1">
+                    <div class="element-icon">📞</div>
+                    <div class="element-text">Quick Call</div>
+                </div>
+                <div class="floating-element element-2">
+                    <div class="element-icon">💬</div>
+                    <div class="element-text">Live Chat</div>
+                </div>
+                <div class="floating-element element-3">
+                    <div class="element-icon">📍</div>
+                    <div class="element-text">Visit Us</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- <div class="contact-scroll-indicator">
+        <div class="scroll-arrow">↓</div>
+        <span class="scroll-text">Scroll to Connect</span>
+    </div> -->
+</section>
+
+<!-- Contact Information Section -->
+<section class="contact-showcase">
+    <div class="showcase-background">
+        <div class="showcase-pattern"></div>
+    </div>
+    
+    <div class="contact-showcase-container">
+        <div class="contact-info-cards">
+            <div class="info-card card-location">
+                <div class="card-glow-effect"></div>
+                <div class="card-icon-container">
+                    <div class="card-icon">📍</div>
+                    <div class="icon-pulse"></div>
+                </div>
+                <div class="card-content">
+                    <h3>Visit Our Clinic</h3>
+                    <p>131-BWD, Fourth Floor<br>Commercial Broadway, D.H.A.<br>Phase 8, Lahore, 54000</p>
+                    <div class="card-action">
+                        <a href="#map" class="action-link">Get Directions</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-card card-phone">
+                <div class="card-glow-effect"></div>
+                <div class="card-icon-container">
+                    <div class="card-icon">📞</div>
+                    <div class="icon-pulse"></div>
+                </div>
+                <div class="card-content">
+                    <h3>Call Us Now</h3>
+                    <p class="phone-number">+92 331 4864899</p>
+                    <div class="card-action">
+                        <a href="tel:+923314864899" class="action-link">Call Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-card card-hours">
+                <div class="card-glow-effect"></div>
+                <div class="card-icon-container">
+                    <div class="card-icon">🕒</div>
+                    <div class="icon-pulse"></div>
+                </div>
+                <div class="card-content">
+                    <h3>Office Hours</h3>
+                    <div class="hours-display">
+                        <div class="hour-item">
+                            <span>Mon - Fri:</span>
+                            <span>9:00 AM - 6:00 PM</span>
+                        </div>
+                        <div class="hour-item">
+                            <span>Saturday:</span>
+                            <span>9:00 AM - 3:00 PM</span>
+                        </div>
+                        <div class="hour-item">
+                            <span>Sunday:</span>
+                            <span>Closed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="contact-form-section">
+    <div class="form-background">
+        <div class="form-particles"></div>
+    </div>
+    
+    <div class="contact-form-container">
+        <div class="form-header">
+            <div class="section-badge">
+                <span class="badge-icon">✉️</span>
+                <span class="badge-text">Send Message</span>
+            </div>
+            <h2 class="section-title">Let's Start a Conversation</h2>
+            <p class="section-subtitle">Your perfect smile is just a message away. Tell us how we can help you achieve your dental goals.</p>
+        </div>
+        
+        <div class="spectacular-form-wrapper">
+            <div class="form-glow"></div>
+            <form id="contactForm" class="spectacular-contact-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <label for="contact-name">Full Name</label>
+                            <input type="text" id="contact-name" name="name" required placeholder="Enter your full name">
+                            <div class="input-focus-line"></div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <label for="contact-email">Email Address</label>
+                            <input type="email" id="contact-email" name="email" required placeholder="Enter your email address">
+                            <div class="input-focus-line"></div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <label for="contact-phone">Phone Number</label>
+                            <input type="tel" id="contact-phone" name="phone" placeholder="Enter your phone number">
+                            <div class="input-focus-line"></div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <label for="contact-subject">Subject</label>
+                            <select id="contact-subject" name="subject" required>
+                                <option value="">Choose a topic</option>
+                                <option value="appointment">Book Appointment</option>
+                                <option value="consultation">Free Consultation</option>
+                                <option value="emergency">Emergency Care</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="insurance">Insurance Questions</option>
+                            </select>
+                            <div class="input-focus-line"></div>
+                           
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group full-width">
+                    <div class="input-wrapper">
+                        <label for="contact-message">Your Message</label>
+                        <textarea id="contact-message" name="message" rows="6" required placeholder="Tell us about your dental needs, concerns, or questions. We're here to help!"></textarea>
+                        <div class="input-focus-line"></div>
+                       
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="spectacular-submit-btn">
+                        <span class="btn-text">Send Message</span>
+                        <span class="btn-icon">🚀</span>
+                        <div class="btn-shimmer"></div>
+                    </button>
+                    
+                    <div class="form-assurance">
+                        <div class="assurance-item">
+                            <span class="assurance-icon">🔒</span>
+                            <span class="assurance-text">Secure & Private</span>
+                        </div>
+                        <div class="assurance-item">
+                            <span class="assurance-icon">⚡</span>
+                            <span class="assurance-text">Quick Response</span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Google Maps Section -->
+<section class="spectacular-map-section" id="map">
+    <div class="map-background">
+        <div class="map-particles"></div>
+    </div>
+    
+    <div class="map-container">
+        <div class="map-header">
+            <div class="section-badge">
+                <span class="badge-icon">🗺️</span>
+                <span class="badge-text">Find Us</span>
+            </div>
+            <h2 class="section-title">Visit Our Modern Facility</h2>
+            <p class="section-subtitle">Located in the heart of DHA Phase 8, our state-of-the-art clinic is easily accessible with ample parking.</p>
+        </div>
+        
+        <div class="map-content">
+            <div class="map-wrapper">
+                <div class="map-frame">
+                    <iframe 
+                        src="https://maps.google.com/maps?q=31.50253178783494,74.42939149131098&hl=en&z=15&amp;output=embed" 
+                        width="100%" 
+                        height="500" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Behzad Dental Clinic Location">
+                    </iframe>
+                    <div class="map-overlay">
+                        <div class="clinic-marker">
+                            <div class="marker-pulse"></div>
+                            <div class="marker-icon">🏥</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="location-details">
+                <div class="detail-card">
+                    <div class="detail-icon">🚗</div>
+                    <div class="detail-content">
+                        <h4>Easy Parking</h4>
+                        <p>Dedicated parking spaces available for all patients</p>
+                    </div>
+                </div>
+                
+                <div class="detail-card">
+                    <div class="detail-icon">🚌</div>
+                    <div class="detail-content">
+                        <h4>Public Transport</h4>
+                        <p>Accessible via multiple bus routes and ride-sharing services</p>
+                    </div>
+                </div>
+                
+                <div class="detail-card">
+                    <div class="detail-icon">♿</div>
+                    <div class="detail-content">
+                        <h4>Accessibility</h4>
+                        <p>Wheelchair accessible with elevator access to 4th floor</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Emergency Contact Section -->
+<section class="emergency-contact">
+    <div class="emergency-background">
+        <div class="emergency-particles"></div>
+    </div>
+    
+    <div class="emergency-container">
+        <div class="emergency-content">
+            <div class="emergency-icon">🚨</div>
+            <h2>Dental Emergency?</h2>
+            <p>Don't wait! Contact us immediately for urgent dental care.</p>
+            <div class="emergency-actions">
+                <a href="tel:+923314864899" class="emergency-btn primary">
+                    <span class="btn-icon">📞</span>
+                    <span class="btn-text">Call Now</span>
+                </a>
+                <a href="https://wa.me/923314864899" class="emergency-btn secondary">
+                    <span class="btn-icon">💬</span>
+                    <span class="btn-text">WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
