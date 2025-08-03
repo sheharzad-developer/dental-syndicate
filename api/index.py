@@ -11,10 +11,18 @@ app = Flask(__name__,
            static_folder=os.path.join(project_root, 'static'),
            static_url_path='/static')
 
+# Configure static file serving for Vercel
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 31536000  # 1 year
+
 app.secret_key = '37d54b82eb57a56f4a2aa7f3079923d122517cbe307df03db88ecf05bf02702d'
 
 # Import all routes from the original app
-from flask import render_template, request, jsonify
+from flask import render_template, request, jsonify, send_from_directory
+
+# Backup static file serving route
+@app.route('/static/<path:filename>')
+def static_files(filename):
+    return send_from_directory(os.path.join(project_root, 'static'), filename)
 
 @app.route('/')
 def home():
