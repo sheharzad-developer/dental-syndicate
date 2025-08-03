@@ -1,16 +1,20 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask
 import os
-import sys
 
-# Add the parent directory to the path so we can import from the root
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# Get the directory of this file
+current_dir = os.path.dirname(os.path.abspath(__file__))
+# Get the parent directory (project root)
+project_root = os.path.dirname(current_dir)
 
 app = Flask(__name__, 
-           template_folder='../templates', 
-           static_folder='../static',
+           template_folder=os.path.join(project_root, 'templates'),
+           static_folder=os.path.join(project_root, 'static'),
            static_url_path='/static')
 
 app.secret_key = '37d54b82eb57a56f4a2aa7f3079923d122517cbe307df03db88ecf05bf02702d'
+
+# Import all routes from the original app
+from flask import render_template, request, jsonify
 
 @app.route('/')
 def home():
@@ -45,27 +49,12 @@ def appointment():
             if not all([name, email, phone, date, time, service]):
                 return jsonify({'success': False, 'message': 'Please fill in all required fields.'})
             
-            # For Vercel deployment, we'll log the appointment instead of sending SMS/WhatsApp
-            # since serverless functions don't support background threading
-            appointment_data = {
-                'name': name,
-                'email': email,
-                'phone': phone,
-                'date': date,
-                'time': time,
-                'service': service,
-                'message': message
-            }
-            
-            # Log appointment for admin review
+            # Log appointment for admin review (Vercel function logs)
             print(f"🏥 NEW APPOINTMENT BOOKED - Dental Syndicate")
             print(f"Patient: {name} | Phone: {phone} | Email: {email}")
             print(f"Date: {date} | Time: {time} | Service: {service}")
             print(f"Message: {message if message else 'None'}")
             print("---")
-            
-            # Note: In production, you would save this to a database
-            # or send to an external service like Zapier, Airtable, or email service
             
             return jsonify({
                 'success': True, 
@@ -78,9 +67,8 @@ def appointment():
     
     return render_template('appointment.html')
 
-# For Vercel serverless deployment
-def handler(request):
-    return app(request.environ, lambda status, headers: None)
+# Vercel entry point
+from werkzeug.wrappers import Request, Response
 
-# This is the entry point for Vercel
-app_handler = app
+def application(environ, start_response):
+    return app.wsgi_app(environ, start_response)
