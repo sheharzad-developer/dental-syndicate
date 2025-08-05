@@ -36,6 +36,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .nav-logo {
@@ -1035,6 +1037,7 @@ body {
     max-width: 600px;
     margin: 0 auto;
     padding: 0 1.5rem;
+    text-align: left;
 }
 
 .hero-badge {
@@ -2152,7 +2155,7 @@ body {
 
 .facility-card.card-3 {
     bottom: 0;
-    left: 25%;
+    left: 0%;
     animation-delay: 3s;
 }
 
@@ -4971,6 +4974,7 @@ body {
     color: #ffffff;
     font-size: 0.95rem;
     transition: all 0.3s ease;
+    margin-bottom: 15px;
 }
 
 .hour-item:hover {
@@ -6126,7 +6130,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
-    display: grid;
+    /* display: grid; */
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
 }
@@ -6799,31 +6803,54 @@ img {
     }
     
     .floating-card {
-        padding: 0.8rem;
-        gap: 0.5rem;
+        padding: 0.6rem 0.8rem;
+        gap: 0.4rem;
+        min-width: 120px;
+        max-width: 140px;
+        position: relative;
+        transform: none !important;
+        animation: none;
     }
     
     .card-icon {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
     
     .card-text {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
+        line-height: 1.2;
     }
     
     .card-1 {
-        top: 5%;
-        left: 0;
+        top: 2%;
+        left: -5%;
+        z-index: 1;
     }
     
     .card-2 {
-        top: 25%;
-        right: 0;
+        top: 20%;
+        right: -5%;
+        z-index: 1;
     }
     
     .card-3 {
-        bottom: 10%;
-        left: 5%;
+        bottom: 5%;
+        left: 2%;
+        z-index: 1;
+    }
+    
+    .visual-container {
+        max-width: 300px;
+        margin: 0 auto;
+        overflow: visible;
+    }
+    
+    .hero-image-container {
+        width: 250px;
+        height: 250px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
     }
     
     .contact-container {
@@ -6844,6 +6871,51 @@ img {
         width: 100%;
         max-width: 100%;
         display: block;
+    }
+    
+    /* Contact Page Floating Elements Mobile Fix */
+    .floating-contact-elements {
+        max-width: 280px;
+        margin: 0 auto;
+        overflow: visible;
+    }
+    
+    .floating-element {
+        position: relative;
+        transform: none !important;
+        animation: none;
+        min-width: 100px;
+        max-width: 120px;
+        padding: 1rem 0.8rem;
+        margin: 0.5rem;
+    }
+    
+    .floating-element.element-1 {
+        top: 0;
+        left: -5%;
+        z-index: 1;
+    }
+    
+    .floating-element.element-2 {
+        top: 25%;
+        right: -5%;
+        z-index: 1;
+    }
+    
+    .floating-element.element-3 {
+        bottom: 0;
+        left: 25%;
+        z-index: 1;
+    }
+    
+    .element-icon {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .element-text {
+        font-size: 0.8rem;
+        line-height: 1.2;
     }
     
     /* Mobile Doctors Section - Compact */
@@ -6894,8 +6966,357 @@ img {
     }
 }
 
-/* Tablet styles */
-@media (max-width: 1024px) and (min-width: 769px) {
+/* Small Laptop styles */
+@media (max-width: 1366px) and (min-width: 1201px) {
+    .nav-container {
+        max-width: 1200px;
+        padding: 0 2rem;
+    }
+    
+    .hero {
+        padding: 8rem 0 6rem 0;
+    }
+    
+    .hero-container {
+        max-width: 1200px;
+        padding: 0 2rem;
+    }
+    
+    .hero-title {
+        font-size: 4rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .services {
+        padding: 5.5rem 0 7.5rem 0;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    
+    .about-hero {
+        padding: 5rem 0 4rem 0;
+    }
+    
+    .about {
+        padding: 3.5rem 0;
+    }
+    
+    .doctors {
+        padding: 1.8rem 0;
+    }
+    
+    .doctor-profile {
+        grid-template-columns: 350px 1fr;
+        gap: 2.5rem;
+        padding: 2.5rem;
+    }
+    
+    .doctors-showcase {
+        grid-template-columns: 1.8fr 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Specific fix for 1104px viewport alignment issues */
+@media (max-width: 1120px) and (min-width: 1080px) {
+    .nav-container {
+        padding: 0 1.8rem;
+        max-width: calc(100% - 3.6rem);
+    }
+    
+    .nav-logo {
+        max-width: 180px;
+    }
+    
+    .logo-text {
+        font-size: 1.05rem;
+    }
+    
+    .nav-menu {
+        gap: 1.3rem;
+    }
+    
+    .nav-link {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.92rem;
+    }
+    
+    .container,
+    .services-container,
+    .about-container,
+    .doctors-container,
+    .contact-container {
+        padding: 0 1.8rem;
+        max-width: calc(100% - 3.6rem);
+    }
+}
+
+/* Large Tablet / Small Laptop styles - CONSOLIDATED */
+@media (max-width: 1200px) and (min-width: 1025px) {
+    /* Navigation fixes for 1104px viewport */
+    .nav-container {
+        padding: 0 2rem;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    .nav-logo {
+        flex-shrink: 0;
+        max-width: 200px;
+    }
+    
+    .logo-img {
+        height: 32px;
+        max-width: 100px;
+    }
+    
+    .logo-text {
+        font-size: 1.1rem;
+        white-space: nowrap;
+    }
+    
+    .nav-menu {
+        gap: 1.5rem;
+        flex-wrap: nowrap;
+    }
+    
+    .nav-link {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.95rem;
+        white-space: nowrap;
+    }
+    
+    /* Section padding adjustments */
+    .hero {
+        padding: 6rem 0 4rem 0;
+    }
+    
+    .hero-container {
+        padding: 0 2rem;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 2.5rem;
+        max-width: 100%;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .about-hero {
+        padding: 6rem 0 4rem 0;
+    }
+    
+    .about {
+        padding: 4rem 0;
+    }
+    
+    .doctors {
+        padding: 4rem 0;
+    }
+    
+    .services {
+        padding: 4rem 0;
+        margin-top: -2rem;
+    }
+    
+    /* Grid and layout adjustments */
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.8rem;
+    }
+    
+    .doctor-profile {
+        grid-template-columns: 320px 1fr;
+        gap: 2rem;
+        padding: 2.2rem;
+    }
+    
+    .doctor-profile-image img {
+        height: 380px;
+    }
+    
+    .doctors-showcase {
+        grid-template-columns: 1.6fr 1fr;
+        gap: 1.8rem;
+    }
+    
+    .featured-doctor-content {
+        padding: 2.2rem;
+    }
+    
+    .about-hero-container,
+    .contact-hero-container,
+    .doctors-hero-container {
+        padding: 0 2rem;
+        gap: 2.5rem;
+        max-width: 100%;
+    }
+    
+    .mission-vision-grid {
+        gap: 2.5rem;
+    }
+    
+    .values-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    
+    .appointment-form {
+        max-width: 550px;
+        padding: 2.2rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1.6rem;
+    }
+    
+    .spectacular-form-wrapper {
+        padding: 2.8rem;
+        max-width: 650px;
+    }
+    
+    .contact-info-cards {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.8rem;
+    }
+    
+    /* Container layout fixes */
+    .container,
+    .services-container,
+    .about-container,
+    .doctors-container,
+    .contact-container {
+        padding: 0 2rem;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    /* Prevent any background overflow */
+    body {
+        overflow-x: hidden;
+    }
+}
+
+/* Medium Tablet styles */
+@media (max-width: 1024px) and (min-width: 993px) {
+    .nav-container {
+        padding: 0 1.6rem;
+    }
+    
+    .nav-menu {
+        gap: 1.6rem;
+    }
+    
+    .nav-link {
+        padding: 0.5rem 0.9rem;
+        font-size: 0.96rem;
+    }
+    
+    .hero {
+        padding: 6rem 0 4rem 0;
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2.5rem;
+        padding: 0 1.6rem;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .services {
+        padding: 4.5rem 0 6rem 0;
+    }
+    
+    .about-hero {
+        padding: 4rem 0 3rem 0;
+    }
+    
+    .about {
+        padding: 2.5rem 0;
+    }
+    
+    .doctors {
+        padding: 1.4rem 0;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.6rem;
+    }
+    
+    .doctor-profile {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1.8rem;
+        padding: 2rem;
+    }
+    
+    .doctors-showcase {
+        grid-template-columns: 1fr;
+        gap: 1.6rem;
+    }
+    
+    .about-hero-container,
+    .contact-hero-container,
+    .doctors-hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2.5rem;
+        padding: 0 1.6rem;
+    }
+    
+    .mission-vision-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .values-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.8rem;
+    }
+    
+    .contact-info-cards {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    /* Medium Tablet Layout Fixes */
+    .container,
+    .services-container,
+    .about-container,
+    .doctors-container,
+    .contact-container {
+        padding: 0 1.6rem;
+        overflow-x: hidden;
+    }
+    
+    /* Fix negative margins */
+    .services {
+        margin-top: -1rem;
+    }
+}
+
+/* Standard Tablet styles */
+@media (max-width: 992px) and (min-width: 769px) {
     .nav-container {
         padding: 0 1.5rem;
     }
@@ -6907,6 +7328,46 @@ img {
     .nav-link {
         padding: 0.5rem 0.8rem;
         font-size: 0.95rem;
+    }
+    
+    .hero {
+        padding: 5rem 0 3rem 0;
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+        padding: 0 1.5rem;
+    }
+    
+    .hero-title {
+        font-size: 3.2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.15rem;
+    }
+    
+    .services {
+        padding: 4rem 0 5rem 0;
+    }
+    
+    .about-hero {
+        padding: 3.5rem 0 2.5rem 0;
+    }
+    
+    .about {
+        padding: 2rem 0;
+    }
+    
+    .doctors {
+        padding: 1.2rem 0;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
     }
     
     .doctor-profile {
@@ -6924,7 +7385,6 @@ img {
         gap: 1rem;
     }
     
-    /* Responsive Doctors Section */
     .doctors-showcase {
         grid-template-columns: 1.5fr 1fr;
         gap: 1.5rem;
@@ -6948,7 +7408,246 @@ img {
     
     .specialty-tag {
         font-size: 0.8rem;
+    }
+    
+    .about-hero-container,
+    .contact-hero-container,
+    .doctors-hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+        padding: 0 1.5rem;
+    }
+    
+    .mission-vision-grid {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+    }
+    
+    .values-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2.5rem;
+    }
+    
+    .appointment-form {
+        max-width: 650px;
+        padding: 2.8rem;
+    }
+    
+    .form-group {
+        margin-bottom: 2rem;
+    }
+    
+    .spectacular-form-wrapper {
+        padding: 3.2rem;
+        max-width: 750px;
+    }
+    
+    .contact-info-cards {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2.2rem;
+    }
+    
+    /* Standard Tablet Layout Fixes */
+    .container,
+    .services-container,
+    .about-container,
+    .doctors-container,
+    .contact-container {
+        padding: 0 2rem;
+        overflow-x: hidden;
+    }
+    
+    /* Fix negative margins */
+    .services {
+        margin-top: -1.5rem;
+    }
+}
+
+/* Small Laptop styles */
+@media (max-width: 1366px) and (min-width: 1201px) {
+    .appointment-form {
+        max-width: 700px;
+        padding: 3rem;
+    }
+    
+    .form-group {
+        margin-bottom: 2.2rem;
+    }
+    
+    .spectacular-form-wrapper {
+        padding: 3.5rem;
+        max-width: 800px;
+    }
+    
+    .contact-info-cards {
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 2.5rem;
+    }
+    
+    .excellence-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+    }
+}
+
+/* Mobile and Small Tablet Optimization */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 1rem;
+    }
+    
+    .nav-menu {
+        gap: 1rem;
+    }
+    
+    .nav-link {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.9rem;
+    }
+    
+    .hero {
+        padding: 4rem 0 2rem 0;
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .services {
+        padding: 3rem 0 4rem 0;
+    }
+    
+    .about-hero {
+        padding: 3rem 0 2rem 0;
+    }
+    
+    .about {
+        padding: 1.5rem 0;
+    }
+    
+    .doctors {
+        padding: 1rem 0;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .doctor-profile {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+    
+    .doctor-profile-image img {
+        height: 300px;
+    }
+    
+    .doctor-info-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .doctors-showcase {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .featured-doctor-content {
+        padding: 1.5rem;
+    }
+    
+    .featured-doctor-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .doctors-hero h2 {
+        font-size: 2rem;
+    }
+    
+    .specialties-preview {
+        gap: 0.4rem;
+    }
+    
+    .specialty-tag {
+        font-size: 0.75rem;
         padding: 0.5rem 0.8rem;
+    }
+    
+    .about-hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    .contact-hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    .doctors-hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    .mission-vision-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .appointment-form {
+        max-width: 100%;
+        padding: 1.5rem;
+        margin: 0 1rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1.2rem;
+    }
+    
+    .spectacular-form-wrapper {
+        padding: 2rem;
+        max-width: 100%;
+        margin: 0 1rem;
+    }
+    
+    .contact-info-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .excellence-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
     
     .featured-actions {
@@ -7049,7 +7748,6 @@ img {
     }
     
     .facility-card.card-3 {
-
         left: 5%;
     }
     
@@ -7095,27 +7793,48 @@ img {
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
     }
     
+    .team-card {
+        position: relative;
+        transform: none !important;
+        animation: none;
+        min-width: 100px;
+        max-width: 120px;
+        padding: 1rem 0.8rem;
+        margin: 0.5rem;
+    }
+    
     .team-card.card-1 {
         top: 0;
-        left: 0;
+        left: -2%;
+        z-index: 1;
     }
     
     .team-card.card-2 {
-        top: 15%;
-        right: 0;
+        top: 12%;
+        right: -2%;
+        z-index: 1;
     }
     
     .team-card.card-3 {
         bottom: 0;
-        left: 20%;
+        left: 15%;
+        z-index: 1;
     }
     
     .team-card .team-icon {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
     }
     
     .team-card h4 {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
+        line-height: 1.2;
+    }
+    
+    .team-showcase {
+        max-width: 280px;
+        margin: 0 auto;
+        overflow: visible;
     }
     
     .doctors-hero-title {
@@ -7537,10 +8256,64 @@ img {
     
     .form-row {
         grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1.2rem;
+    }
+    
+    .spectacular-form-wrapper {
+        padding: 2rem 1.5rem;
+        max-width: 100%;
+        margin: 0 1rem;
     }
     
     .page-header h1 {
         font-size: 2rem;
+    }
+    
+    /* General Mobile Layout Fixes */
+    .container,
+    .services-container,
+    .about-container,
+    .doctors-container,
+    .contact-container {
+        padding: 0 1rem;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    /* Prevent horizontal scrolling */
+    body {
+        overflow-x: hidden;
+    }
+    
+    /* Fix grid layouts on mobile */
+    .services-grid,
+    .values-grid,
+    .mission-vision-grid,
+    .contact-info-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    /* Ensure proper spacing for all sections */
+    section {
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    /* Fix negative margins that cause layout issues */
+    .services {
+        margin-top: 0;
+    }
+    
+    .about {
+        margin-top: 0;
     }
     
     /* Footer adjustments */

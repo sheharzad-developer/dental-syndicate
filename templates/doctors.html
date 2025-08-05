@@ -36,7 +36,7 @@
             
             <div class="doctors-hero-stats">
                 <div class="hero-stat-item">
-                    <div class="stat-number">2</div>
+                    <div class="stat-number">3</div>
                     <div class="stat-label">Expert Doctors</div>
                 </div>
                 <div class="hero-stat-item">
@@ -165,6 +165,14 @@
                                     <span class="membership-icon">🏅</span>
                                     <span class="membership-text">Pakistan Medical Commission (PMC)</span>
                                 </div>
+                                <div class="membership-item">
+                                    <span class="membership-icon">🎓</span>
+                                    <span class="membership-text">International College of Dentists</span>
+                                </div>
+                                <div class="membership-item">
+                                    <span class="membership-icon">🏥</span>
+                                    <span class="membership-text">Associate Professor & Head of Department</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -197,7 +205,7 @@
             </div>
             
             <div class="doctor-profile-header">
-                <div class="doctor-badge">Dental Specialist</div>
+                <div class="doctor-badge">Associate Professor & Oral Surgeon</div>
                 <div class="doctor-rating">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
                     <span class="rating-text">5.0 Patient Rating</span>
@@ -208,7 +216,7 @@
                 <div class="doctor-image-container">
                     <div class="doctor-image-glow"></div>
                     <img src="{{ url_for('static', filename='images/dr-ehsan.jpg') }}" alt="Dr. Ehsan Rathore" class="doctor-image">
-                    <div class="doctor-experience-badge">10+ Years</div>
+                    <div class="doctor-experience-badge">20+ Years</div>
                 </div>
                 
                 <div class="doctor-info">
@@ -217,14 +225,13 @@
                         <div class="doctor-credentials">
                             <span class="credential-badge">BDS</span>
                             <span class="credential-badge">MCPS</span>
+                            <span class="credential-badge">CHPE</span>
+                            <span class="credential-badge">FICD</span>
                         </div>
                     </div>
                     
                     <p class="doctor-bio">
-                        Dr. Ehsan Rathore is a skilled dental specialist at Dental Syndicate with over 10 years of dedicated 
-                        experience in comprehensive dental care. Holding advanced qualifications in BDS and MCPS, Dr. Rathore 
-                        provides exceptional general dentistry services with a focus on preventive care and patient comfort. 
-                        He is a certified member of the Pakistan Medical Commission (PMC).
+                        Dr. Ehsan Rathore, BDS, MCPS, CHPE, FICD, is currently serving as an Associate Professor and Head of Department at a dental college in Lahore. He has 20 years of experience and is dedicated to mastering oral diseases through precise diagnosis, effective treatment planning, and skilled intervention. He is a skilled oral surgeon and has performed numerous oral surgical procedures under local anesthesia which include wisdom tooth surgeries, cyst removal, abscess drainage, implant surgeries, biopsies etc. He has also treated scores of conservative management of TMJ disorders, oral sub mucous fibrosis, trigeminal neuralgia, salivary gland obstructive diseases, burning mouth syndrome etc.
                     </p>
                     
                     <div class="doctor-specialties-grid">
@@ -234,10 +241,12 @@
                                 Primary Specializations
                             </h4>
                             <div class="specialty-tags">
-                                <span class="specialty-tag featured">General Dentistry</span>
-                                <span class="specialty-tag">Preventive Care</span>
-                                <span class="specialty-tag">Oral Health</span>
-                                <span class="specialty-tag">Patient Care</span>
+                                <span class="specialty-tag featured">Oral Surgery</span>
+                                <span class="specialty-tag">Wisdom Tooth Surgery</span>
+                                <span class="specialty-tag">Implant Surgery</span>
+                                <span class="specialty-tag">TMJ Disorders</span>
+                                <span class="specialty-tag">Oral Pathology</span>
+                                <span class="specialty-tag">Cyst Removal</span>
                             </div>
                         </div>
                         
@@ -249,11 +258,23 @@
                             <div class="education-items">
                                 <div class="education-item">
                                     <div class="education-degree">Bachelor of Dental Surgery (BDS)</div>
-                                    <div class="education-detail">Comprehensive Dental Medicine</div>
+                                    <div class="education-detail">Baqai Medical University, Karachi</div>
                                 </div>
                                 <div class="education-item">
-                                    <div class="education-degree">Member College of Physicians & Surgeons (MCPS)</div>
-                                    <div class="education-detail">Advanced Medical Specialization</div>
+                                    <div class="education-degree">MCPS in Oral Surgery</div>
+                                    <div class="education-detail">College of Physicians and Surgeons, Pakistan</div>
+                                </div>
+                                <div class="education-item">
+                                    <div class="education-degree">CHPE</div>
+                                    <div class="education-detail">National University of Medical Sciences</div>
+                                </div>
+                                <div class="education-item">
+                                    <div class="education-degree">Fellowship (FICD)</div>
+                                    <div class="education-detail">International College of Dentists (Hons)</div>
+                                </div>
+                                <div class="education-item">
+                                    <div class="education-degree">Implant Certification</div>
+                                    <div class="education-detail">Institute of Advanced Dental Sciences</div>
                                 </div>
                             </div>
                         </div>
@@ -267,6 +288,131 @@
                                 <div class="membership-item">
                                     <span class="membership-icon">🏅</span>
                                     <span class="membership-text">Pakistan Medical Commission (PMC)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="doctor-contact-section">
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="contact-icon">📞</span>
+                                <span class="contact-text">+92 331 4864899</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">🏥</span>
+                                <span class="contact-text">Dental Syndicate</span>
+                            </div>
+                        </div>
+                        <a href="{{ url_for('appointment') }}" class="doctor-appointment-btn">
+                            <span class="btn-text">Book Consultation</span>
+                            <span class="btn-icon">📅</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Dr. Ahmed Kamal Dogar - Specialist Orthodontist -->
+        <div class="doctor-profile-card">
+            <div class="doctor-card-background">
+                <div class="card-glow"></div>
+                <div class="card-particles"></div>
+            </div>
+            
+            <div class="doctor-profile-header">
+                <div class="doctor-badge">Specialist Orthodontist</div>
+                <div class="doctor-rating">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <span class="rating-text">5.0 Patient Rating</span>
+                </div>
+            </div>
+            
+            <div class="doctor-profile-content">
+                <div class="doctor-image-container">
+                    <div class="doctor-image-glow"></div>
+                    <img src="{{ url_for('static', filename='images/placeholder.svg') }}" alt="Dr. Ahmed Kamal Dogar" class="doctor-image">
+                    <div class="doctor-experience-badge">15+ Years</div>
+                </div>
+                
+                <div class="doctor-info">
+                    <div class="doctor-name-section">
+                        <h2 class="doctor-name">Dr. Ahmed Kamal Dogar</h2>
+                        <div class="doctor-credentials">
+                            <span class="credential-badge">MSc</span>
+                            <span class="credential-badge">IMOrth RCS ENG</span>
+                            <span class="credential-badge">MDPH</span>
+                        </div>
+                    </div>
+                    
+                    <p class="doctor-bio">
+                        Dr. Ahmed Kamal Dogar is a Specialist Orthodontist with 15 years of immense experience. He graduated from The University of Dundee, Scotland UK and pursued his Membership from the Royal College of Surgeons of England, UK. He is well experienced with all kinds of braces especially ceramic braces and Clear aligners/Invisalign for good smile. He is particularly focused on treating the patients not just the teeth, with expertise in correction of malpositioned teeth, treating crooked teeth, correcting the smile line, and matching smile with facial aesthetics.
+                    </p>
+                    
+                    <div class="doctor-specialties-grid">
+                        <div class="specialty-category">
+                            <h4 class="category-title">
+                                <span class="category-icon">🦷</span>
+                                Primary Specializations
+                            </h4>
+                            <div class="specialty-tags">
+                                <span class="specialty-tag featured">Orthodontics</span>
+                                <span class="specialty-tag featured">Ceramic Braces</span>
+                                <span class="specialty-tag featured">Clear Aligners/Invisalign</span>
+                                <span class="specialty-tag featured">Hollywood Smile</span>
+                                <span class="specialty-tag">Crooked Teeth Correction</span>
+                                <span class="specialty-tag">Smile Line Correction</span>
+                                <span class="specialty-tag">Facial Aesthetics</span>
+                                <span class="specialty-tag">Full Mouth Rehabilitation</span>
+                            </div>
+                        </div>
+                        
+                        <div class="specialty-category">
+                            <h4 class="category-title">
+                                <span class="category-icon">🎓</span>
+                                Education & Certifications
+                            </h4>
+                            <div class="education-items">
+                                <div class="education-item">
+                                    <div class="education-degree">Dental Degree</div>
+                                    <div class="education-detail">The University of Dundee, Scotland UK</div>
+                                </div>
+                                <div class="education-item">
+                                    <div class="education-degree">MSc (Orthodontics)</div>
+                                    <div class="education-detail">University of Dundee, UK</div>
+                                </div>
+                                <div class="education-item">
+                                    <div class="education-degree">IMOrth RCS ENG</div>
+                                    <div class="education-detail">Royal College of Surgeons of England, UK</div>
+                                </div>
+                                <div class="education-item">
+                                    <div class="education-degree">MDPH</div>
+                                    <div class="education-detail">University of Dundee, UK</div>
+                                </div>
+                                <div class="education-item">
+                                    <div class="education-degree">Research Supervisor</div>
+                                    <div class="education-detail">Middlesex University UK</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="specialty-category">
+                            <h4 class="category-title">
+                                <span class="category-icon">🏆</span>
+                                Professional Memberships
+                            </h4>
+                            <div class="membership-items">
+                                <div class="membership-item">
+                                    <span class="membership-icon">🏅</span>
+                                    <span class="membership-text">Royal College of Surgeons of England</span>
+                                </div>
+                                <div class="membership-item">
+                                    <span class="membership-icon">🎓</span>
+                                    <span class="membership-text">Middlesex University UK (Research Supervisor)</span>
+                                </div>
+                                <div class="membership-item">
+                                    <span class="membership-icon">🏥</span>
+                                    <span class="membership-text">Multidisciplinary Team - Full Mouth Rehabilitation</span>
                                 </div>
                             </div>
                         </div>
