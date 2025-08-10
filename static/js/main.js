@@ -282,9 +282,15 @@ function hideFieldError(field) {
 // Animated Counter Function
 function animateCounter(element, target) {
     let current = 0;
-    const increment = target / 100; // Animation duration control
-    const duration = 2000; // 2 seconds
-    const stepTime = duration / target;
+    
+    // Faster animation for smaller numbers (like years experience)
+    const duration = target <= 50 ? 800 : 2000; // 0.8s for small numbers, 2s for large
+    const increment = target / (duration / 20); // Smooth 20ms intervals
+    
+    // Check if original content has a '+' symbol
+    const originalText = element.dataset.originalText || element.textContent;
+    const hasPlus = originalText.includes('+');
+    const hasPercent = originalText.includes('%');
     
     const timer = setInterval(() => {
         current += increment;
@@ -292,8 +298,13 @@ function animateCounter(element, target) {
             current = target;
             clearInterval(timer);
         }
-        element.textContent = Math.floor(current);
-    }, stepTime);
+        
+        let displayText = Math.floor(current).toString();
+        if (hasPlus) displayText += '+';
+        if (hasPercent) displayText += '%';
+        
+        element.textContent = displayText;
+    }, 20);
 }
 
 // Progress Bar Animation Function
@@ -326,10 +337,13 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
         const heroStats = document.querySelectorAll('.hero-stat .stat-number');
         heroStats.forEach((stat, index) => {
-            const target = parseInt(stat.textContent);
+            const originalText = stat.textContent;
+            const target = parseInt(originalText);
             if (!isNaN(target)) {
                 stat.textContent = '0';
                 setTimeout(() => {
+                    // Store original text for symbol preservation
+                    stat.dataset.originalText = originalText;
                     animateCounter(stat, target);
                 }, index * 200);
             }
