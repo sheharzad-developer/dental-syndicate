@@ -422,10 +422,13 @@ document.addEventListener('DOMContentLoaded', function() {
     if (doctorsHeroStats.length > 0) {
         setTimeout(() => {
             doctorsHeroStats.forEach((stat, index) => {
-                const target = parseInt(stat.textContent);
+                const originalText = stat.textContent;
+                const target = parseInt(originalText);
                 if (!isNaN(target)) {
                     stat.textContent = '0';
                     setTimeout(() => {
+                        // Store original text for symbol preservation
+                        stat.dataset.originalText = originalText;
                         animateCounter(stat, target);
                     }, index * 300);
                 }
