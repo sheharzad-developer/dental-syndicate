@@ -24,6 +24,9 @@ def about():
 def doctors():
     return render_template('doctors.html')
 
+@app.route('/gallery')
+def gallery():
+    return render_template('gallery.html')
 
 @app.route('/contact')
 def contact():

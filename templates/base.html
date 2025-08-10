@@ -36,6 +36,9 @@
                     <a href="{{ url_for('doctors') }}" class="nav-link {% if request.endpoint == 'doctors' %}active{% endif %}">Doctors</a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ url_for('gallery') }}" class="nav-link {% if request.endpoint == 'gallery' %}active{% endif %}">Gallery</a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ url_for('contact') }}" class="nav-link {% if request.endpoint == 'contact' %}active{% endif %}">Contact</a>
                 </li>
                 <li class="nav-item">
