@@ -1,0 +1,60 @@
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gum line -->
+  <rect x="0" y="32" width="48" height="16" fill="#FFB6C1" rx="2"/>
+  
+  <!-- Left tooth -->
+  <path d="M8 32 Q8 18 12 14 Q16 10 20 14 Q20 18 20 32" fill="#FFFFFF" stroke="#E0E0E0" stroke-width="1">
+    <animateTransform attributeName="transform" type="translate" values="0,0; 0,-1; 0,0" dur="3s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Right tooth -->
+  <path d="M28 32 Q28 18 32 14 Q36 10 40 14 Q40 18 40 32" fill="#FFFFFF" stroke="#E0E0E0" stroke-width="1">
+    <animateTransform attributeName="transform" type="translate" values="0,0; 0,-1; 0,0" dur="3s" begin="0.5s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Left tooth braces brackets -->
+  <rect x="12" y="20" width="3" height="4" fill="#C0C0C0" rx="0.5">
+    <animate attributeName="opacity" values="0.7; 1; 0.7" dur="2s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="17" y="22" width="3" height="4" fill="#C0C0C0" rx="0.5">
+    <animate attributeName="opacity" values="0.7; 1; 0.7" dur="2s" begin="0.3s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Right tooth braces brackets -->
+  <rect x="32" y="20" width="3" height="4" fill="#C0C0C0" rx="0.5">
+    <animate attributeName="opacity" values="0.7; 1; 0.7" dur="2s" begin="0.6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="37" y="22" width="3" height="4" fill="#C0C0C0" rx="0.5">
+    <animate attributeName="opacity" values="0.7; 1; 0.7" dur="2s" begin="0.9s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Braces wire connecting brackets -->
+  <path d="M13.5 22 Q24 20 38.5 22" stroke="#808080" stroke-width="1" fill="none">
+    <animate attributeName="stroke-dasharray" values="0,100; 50,50; 100,0" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5; 1; 0.5" dur="2s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Sparkle effects for clean teeth -->
+  <circle cx="14" cy="16" r="1" fill="#87CEEB" opacity="0">
+    <animate attributeName="opacity" values="0; 1; 0" dur="1.5s" begin="1s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="scale" values="0; 1; 0" dur="1.5s" begin="1s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="34" cy="16" r="1" fill="#87CEEB" opacity="0">
+    <animate attributeName="opacity" values="0; 1; 0" dur="1.5s" begin="2s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="scale" values="0; 1; 0" dur="1.5s" begin="2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="18" cy="18" r="0.8" fill="#87CEEB" opacity="0">
+    <animate attributeName="opacity" values="0; 1; 0" dur="1.5s" begin="2.5s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="scale" values="0; 1; 0" dur="1.5s" begin="2.5s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Alignment guide lines (subtle animation) -->
+  <line x1="24" y1="10" x2="24" y2="35" stroke="#4CAF50" stroke-width="0.5" opacity="0.3">
+    <animate attributeName="opacity" values="0.1; 0.5; 0.1" dur="3s" repeatCount="indefinite"/>
+  </line>
+  
+  <!-- Title text -->
+  <text x="24" y="6" font-family="Arial, sans-serif" font-size="7" fill="#666" text-anchor="middle">Orthodontics</text>
+</svg>

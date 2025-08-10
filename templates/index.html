@@ -34,11 +34,11 @@
             
             <div class="hero-stats">
                 <div class="hero-stat">
-                    <div class="stat-number">15+</div>
+                    <div class="stat-number">11+</div>
                     <div class="stat-label">Years Experience</div>
                 </div>
                 <div class="hero-stat">
-                    <div class="stat-number">2000+</div>
+                    <div class="stat-number">5000+</div>
                     <div class="stat-label">Happy Patients</div>
                 </div>
                 <div class="hero-stat">
@@ -58,7 +58,7 @@
                 </div>
                 <div class="trust-item">
                     <span class="trust-icon">✓</span>
-                    <span class="trust-text">PMC Registered</span>
+                    <span class="trust-text">PHC Registered</span>
                 </div>
             </div>
         </div>
@@ -117,8 +117,12 @@
                     <p class="service-description">Comprehensive oral health care including cleanings, fillings, and preventive treatments</p>
                     <div class="service-features">
                         <div class="feature-item">✓ Regular Check-ups</div>
-                        <div class="feature-item">✓ Cavity Treatment</div>
+                        <div class="feature-item">✓ Dental Fillings</div>
                         <div class="feature-item">✓ Preventive Care</div>
+                        <div class="feature-item">✓ Root Canal Treatment</div>
+                        <div class="feature-item">✓ Teeth Whitening</div>
+                        <div class="feature-item">✓ Crown and Bridgework</div>
+                        <div class="feature-item">✓ Simple & Surgical tooth removal</div>
                     </div>
                 </div>
                 <div class="service-footer">
@@ -140,8 +144,10 @@
                     <p class="service-description">Transform your smile with whitening, veneers, and aesthetic dental procedures</p>
                     <div class="service-features">
                         <div class="feature-item">✓ Teeth Whitening</div>
-                        <div class="feature-item">✓ Veneers</div>
+                        <div class="feature-item">✓ Porcelain Veneers</div>
                         <div class="feature-item">✓ Smile Makeover</div>
+                        <div class="feature-item">✓ Zirconia Crowns</div>
+                        <div class="feature-item">✓ E-Max Crowns</div>
                     </div>
                 </div>
                 <div class="service-footer">
@@ -154,7 +160,7 @@
             <div class="service-card-inner">
                 <div class="service-header">
                     <div class="service-icon-container">
-                        <div class="service-icon">🦷</div>
+                       <img src="{{ url_for('static', filename='images/dental-implants.png') }}" alt="Dental Implants" class="service-icon" style="width: 48px; height: 48px;">
                         <div class="icon-glow"></div>
                     </div>
                 </div>
@@ -162,9 +168,12 @@
                     <h3 class="service-title">Orthodontics</h3>
                     <p class="service-description">Straighten your teeth with modern braces and clear aligner solutions</p>
                     <div class="service-features">
-                        <div class="feature-item">✓ Traditional Braces</div>
+                        <div class="feature-item">✓ Traditional Metal Braces</div>
+                        <div class="feature-item">✓ Ceramic Braces</div>
                         <div class="feature-item">✓ Clear Aligners</div>
                         <div class="feature-item">✓ Bite Correction</div>
+                        <div class="feature-item">✓ Interceptive Orthodontics</div>
+                        <div class="feature-item">✓ Functional & Habit-breaking Appliances</div>
                     </div>
                 </div>
                 <div class="service-footer">
@@ -177,7 +186,7 @@
             <div class="service-card-inner">
                 <div class="service-header">
                     <div class="service-icon-container">
-                        <div class="service-icon">🏆</div>
+                        <img src="{{ url_for('static', filename='images/dental-implants2.png') }}" alt="Dental Implants" class="service-icon" style="width: 48px; height: 48px;">
                         <div class="icon-glow"></div>
                     </div>
                     <div class="service-badge">Specialty</div>
@@ -186,7 +195,7 @@
                     <h3 class="service-title">Dental Implants</h3>
                     <p class="service-description">Permanent tooth replacement solutions with titanium implants and natural-looking crowns</p>
                     <div class="service-features">
-                        <div class="feature-item">✓ Single Implants</div>
+                        <div class="feature-item">✓ Single & Multiple Implants</div>
                         <div class="feature-item">✓ Full Mouth Restoration</div>
                         <div class="feature-item">✓ Implant Crowns</div>
                     </div>
@@ -221,16 +230,18 @@
             </div>
             <div class="featured-doctor-content">
                 <div class="featured-badge">Lead Dentist</div>
-                <h3>Dr. Behzad Salahuddin</h3>
-                <div class="credentials-badge">BDS, MSC</div>
+                <h3>Professor Dr. Muhammad Behzad Salahuddin</h3>
+                <div class="credentials-badge">BDS, MSc (London), FICD (USA), CMT (UHS/Liverpool)</div>
                 <p class="featured-description">
-                    Leading dental specialist with expertise in Dental Implants, Crowns & Bridges, and Full Mouth Rehabilitation. 
+                    Leading Consultant Dental Surgeon with a clinical experience of over 22 years in the field of dentistry. 
+                    Expertise in Routine Dental Cleanings, Dental Fillings, Routine Endodontics, Implants, Crowns & Bridges, and Full Mouth Rehabilitation. 
                     Committed to providing exceptional dental care with advanced qualifications.
                 </p>
                 <div class="specialties-preview">
                     <span class="specialty-tag">🦷 Dental Implants</span>
                     <span class="specialty-tag">👑 Crowns & Bridges</span>
-                    <span class="specialty-tag">🔬 Prosthodontics</span>
+                    <span class="specialty-tag">🔬 Restorative Dentistry</span>
+                    
                 </div>
                 <div class="featured-actions">
                     <a href="{{ url_for('doctors') }}" class="primary-btn">View Profile</a>
@@ -248,10 +259,11 @@
             <div class="secondary-doctor-content">
                 <div class="doctor-header">
                     <h4>Dr. Ehsan Rathore</h4>
-                    <span class="credentials">BDS, MCPS</span>
+                    <h3>Associate Professor</h3>
+                    <span class="credentials">BDS, MCPS (Oral Surgery), FICD (USA), CHPE</span>
                 </div>
                 <p class="secondary-description">
-                    Dedicated dentist providing comprehensive dental care with advanced qualifications and PMC membership.
+                    Dedicated Consultant Oral Surgeon with an experience of over 20 years, providing comprehensive surgical dental care with advanced qualifications.
                 </p>
                 <div class="secondary-stats">
                     <div class="stat-item">
@@ -261,6 +273,35 @@
                     <div class="stat-item">
                         <span class="stat-icon">📞</span>
                         <span class="stat-text">+92 331 4864899</span>
+                    </div>
+                </div>
+                <a href="{{ url_for('doctors') }}" class="view-profile-btn">View Full Profile →</a>
+            </div>
+        </div>
+        
+        <!-- Third Doctor Card -->
+        <div class="secondary-doctor-card">
+            <div class="card-glow"></div>
+            <div class="secondary-doctor-image">
+                <img src="{{ url_for('static', filename='images/dr-ahmed.jpg') }}" alt="Dr. Ahmed Kamal Dogar">
+            </div>
+            <div class="secondary-doctor-content">
+                <div class="doctor-header">
+                    <h4>Dr. Ahmed Kamal Dogar</h4>
+                    <h3>Consultant Dentist</h3>
+                    <span class="credentials">BDS, FCPS (Oral Surgery)</span>
+                </div>
+                <p class="secondary-description">
+                    Experienced Consultant Dentist specializing in oral surgery and general dentistry, providing comprehensive dental care with modern techniques.
+                </p>
+                <div class="secondary-stats">
+                    <div class="stat-item">
+                        <span class="stat-icon">🏥</span>
+                        <span class="stat-text">Dental Syndicate</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-icon">📞</span>
+                        <span class="stat-text">+92 300 1234567</span>
                     </div>
                 </div>
                 <a href="{{ url_for('doctors') }}" class="view-profile-btn">View Full Profile →</a>
@@ -410,7 +451,7 @@
         <div class="stats-achievements">
             <div class="achievement-item">
                 <div class="achievement-icon">🏅</div>
-                <div class="achievement-text">PMC Certified</div>
+                <div class="achievement-text">PHC Certified</div>
             </div>
             <div class="achievement-item">
                 <div class="achievement-icon">⭐</div>
