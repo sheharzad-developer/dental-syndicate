@@ -287,10 +287,11 @@ function animateCounter(element, target) {
     const duration = target <= 50 ? 800 : 2000; // 0.8s for small numbers, 2s for large
     const increment = target / (duration / 20); // Smooth 20ms intervals
     
-    // Check if original content has a '+' symbol
+    // Check if original content has special symbols
     const originalText = element.dataset.originalText || element.textContent;
     const hasPlus = originalText.includes('+');
     const hasPercent = originalText.includes('%');
+    const hasStar = originalText.includes('★');
     
     const timer = setInterval(() => {
         current += increment;
@@ -302,6 +303,7 @@ function animateCounter(element, target) {
         let displayText = Math.floor(current).toString();
         if (hasPlus) displayText += '+';
         if (hasPercent) displayText += '%';
+        if (hasStar) displayText += '★';
         
         element.textContent = displayText;
     }, 20);
@@ -338,8 +340,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const heroStats = document.querySelectorAll('.hero-stat .stat-number');
         heroStats.forEach((stat, index) => {
             const originalText = stat.textContent;
-            const target = parseInt(originalText);
-            if (!isNaN(target)) {
+            // Extract numeric value from text (handles cases like "5★", "100+", etc.)
+            const numericMatch = originalText.match(/\d+/);
+            const target = numericMatch ? parseInt(numericMatch[0]) : null;
+            
+            if (target !== null && !isNaN(target)) {
                 stat.textContent = '0';
                 setTimeout(() => {
                     // Store original text for symbol preservation
