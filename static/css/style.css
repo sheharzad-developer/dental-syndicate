@@ -776,6 +776,11 @@ body {
     gap: 2rem;
 }
 
+.services-grid.full-width {
+    max-width: 100%;
+    padding: 0 1rem;
+}
+
 .service-card {
     position: relative;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
@@ -1119,7 +1124,7 @@ body {
     padding: 1.5rem 1.5rem 2.5rem;
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto auto auto;
     gap: 1.5rem;
     position: relative;
     z-index: 2;
@@ -1421,6 +1426,7 @@ body {
 
 /* Quick Actions Card */
 .quick-actions-card {
+    grid-column: 1 / -1;
     background: linear-gradient(135deg, rgba(31, 216, 216, 0.15), rgba(31, 216, 216, 0.05));
     border-radius: 20px;
     padding: 2rem;
