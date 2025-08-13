@@ -3659,6 +3659,10 @@ body {
     padding: 0 2rem;
 }
 
+.team-excellence-container.full-width {
+    max-width:100%;
+}
+
 .excellence-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
