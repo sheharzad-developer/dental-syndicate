@@ -115,7 +115,7 @@ Additional Info: {message if message else 'None'}"""
 {message if message else 'None provided'}
 
 📍 *Clinic Address:*
-131-BWD, Fourth Floor، Commercial Broadway, D.H.A. Commercial Broadway DHA Phase 8, Lahore, 54000
+131-BWD, Fourth Floor، Commercial Broadway, DHA Phase 8, Lahore, 54000
 
 ---
 *Please confirm availability*"""
