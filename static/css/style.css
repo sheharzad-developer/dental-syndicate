@@ -1374,6 +1374,9 @@ body {
     flex-wrap: wrap;
     gap: 0.8rem;
     margin-bottom: 2.5rem;
+    list-style: none;
+    padding: 0;
+    margin-left: 0;
 }
 
 .specialty-tag {
@@ -1385,11 +1388,19 @@ body {
     font-weight: 500;
     border: 1px solid rgba(31, 216, 216, 0.3);
     transition: all 0.3s ease;
+    margin: 0;
 }
 
 .specialty-tag:hover {
     background: rgba(31, 216, 216, 0.25);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(31, 216, 216, 0.3);
+}
+
+/* Accessibility improvements for list items */
+.specialty-tag:focus {
+    outline: 2px solid rgba(31, 216, 216, 0.5);
+    outline-offset: 2px;
 }
 
 .featured-actions {
@@ -1707,7 +1718,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin: 0 auto;
 }
 
