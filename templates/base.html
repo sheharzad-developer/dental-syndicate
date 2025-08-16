@@ -2,74 +2,172 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}Behzad Dental Clinic - Your Smile, Our Priority{% endblock %}</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>{% block title %}Behzad Dental Clinic - Expert Dental Care in Lahore | Dental Implants, Orthodontics{% endblock %}</title>
+    <meta name="title" content="{% block meta_title %}Behzad Dental Clinic - Expert Dental Care in Lahore | Dental Implants, Orthodontics{% endblock %}">
+    <meta name="description" content="{% block meta_description %}Leading dental clinic in Lahore offering dental implants, orthodontics, cosmetic dentistry, and comprehensive oral care. Expert dentists with 20+ years experience. Book appointment today.{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}dental clinic Lahore, dental implants, orthodontics, cosmetic dentistry, dental care, dentist Lahore, dental surgery, teeth whitening, dental checkup{% endblock %}">
+    <meta name="author" content="Behzad Dental Clinic">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.url }}">
+    <meta property="og:title" content="{% block og_title %}Behzad Dental Clinic - Expert Dental Care in Lahore{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Leading dental clinic in Lahore offering dental implants, orthodontics, cosmetic dentistry, and comprehensive oral care. Expert dentists with 20+ years experience.{% endblock %}">
+    <meta property="og:image" content="{{ url_for('static', filename='images/dr-behzad-large.jpg', _external=True) }}">
+    <meta property="og:site_name" content="Behzad Dental Clinic">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ request.url }}">
+    <meta property="twitter:title" content="{% block twitter_title %}Behzad Dental Clinic - Expert Dental Care in Lahore{% endblock %}">
+    <meta property="twitter:description" content="{% block twitter_description %}Leading dental clinic in Lahore offering dental implants, orthodontics, cosmetic dentistry, and comprehensive oral care.{% endblock %}">
+    <meta property="twitter:image" content="{{ url_for('static', filename='images/dr-behzad-large.jpg', _external=True) }}">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="geo.region" content="PK-LH">
+    <meta name="geo.placename" content="Lahore">
+    <meta name="geo.position" content="31.5204;74.3587">
+    <meta name="ICBM" content="31.5204, 74.3587">
+    <link rel="canonical" href="{{ request.url }}">
+    
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Dentist",
+        "name": "Behzad Dental Clinic",
+        "description": "Leading dental clinic in Lahore offering comprehensive dental care including implants, orthodontics, and cosmetic dentistry",
+        "url": "{{ request.url_root }}",
+        "telephone": "+92 331 4864899",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "131-BWD, Fourth Floor, Commercial Broadway",
+            "addressLocality": "DHA Phase 8",
+            "addressRegion": "Lahore",
+            "postalCode": "54000",
+            "addressCountry": "PK"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 31.5204,
+            "longitude": 74.3587
+        },
+        "openingHours": "Mo-Fr 09:00-18:00, Sa 09:00-15:00",
+        "priceRange": "$$",
+        "image": "{{ url_for('static', filename='images/dr-behzad-large.jpg', _external=True) }}",
+        "sameAs": [
+            "https://www.facebook.com/behzaddentalclinic",
+            "https://www.instagram.com/behzaddentalclinic"
+        ]
+    }
+    </script>
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="{{ url_for('static', filename='css/style.css') }}" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+    
+    <!-- Performance Optimization -->
+    <meta name="theme-color" content="#2c5f66">
+    <meta name="msapplication-TileColor" content="#2c5f66">
 </head>
 <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Dental Syndicate" class="logo-img" height="150">
-                <!-- <span class="logo-text">Dental Syndicate</span> -->
+                <a href="{{ url_for('home') }}" aria-label="Behzad Dental Clinic Home">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Behzad Dental Clinic Logo" class="logo-img" height="150" loading="eager">
+                </a>
             </div>
             
             <!-- Mobile menu button -->
-            <button class="nav-toggle" aria-label="Toggle navigation">
-                <span class="hamburger"></span>
-                <span class="hamburger"></span>
-                <span class="hamburger"></span>
+            <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                <span class="hamburger" aria-hidden="true"></span>
+                <span class="hamburger" aria-hidden="true"></span>
+                <span class="hamburger" aria-hidden="true"></span>
             </button>
             
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="{{ url_for('home') }}" class="nav-link {% if request.endpoint == 'home' %}active{% endif %}">Home</a>
+            <ul class="nav-menu" id="nav-menu" role="menubar">
+                <li class="nav-item" role="none">
+                    <a href="{{ url_for('home') }}" class="nav-link {% if request.endpoint == 'home' %}active{% endif %}" role="menuitem" aria-current="{% if request.endpoint == 'home' %}page{% endif %}">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ url_for('about') }}" class="nav-link {% if request.endpoint == 'about' %}active{% endif %}">About</a>
+                <li class="nav-item" role="none">
+                    <a href="{{ url_for('about') }}" class="nav-link {% if request.endpoint == 'about' %}active{% endif %}" role="menuitem" aria-current="{% if request.endpoint == 'about' %}page{% endif %}">About</a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ url_for('doctors') }}" class="nav-link {% if request.endpoint == 'doctors' %}active{% endif %}">Doctors</a>
+                <li class="nav-item" role="none">
+                    <a href="{{ url_for('doctors') }}" class="nav-link {% if request.endpoint == 'doctors' %}active{% endif %}" role="menuitem" aria-current="{% if request.endpoint == 'doctors' %}page{% endif %}">Doctors</a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ url_for('gallery') }}" class="nav-link {% if request.endpoint == 'gallery' %}active{% endif %}">Gallery</a>
+                <li class="nav-item" role="none">
+                    <a href="{{ url_for('gallery') }}" class="nav-link {% if request.endpoint == 'gallery' %}active{% endif %}" role="menuitem" aria-current="{% if request.endpoint == 'gallery' %}page{% endif %}">Gallery</a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ url_for('contact') }}" class="nav-link {% if request.endpoint == 'contact' %}active{% endif %}">Contact</a>
+                <li class="nav-item" role="none">
+                    <a href="{{ url_for('contact') }}" class="nav-link {% if request.endpoint == 'contact' %}active{% endif %}" role="menuitem" aria-current="{% if request.endpoint == 'contact' %}page{% endif %}">Contact</a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ url_for('appointment') }}" class="nav-link appointment-btn">Appointment</a>
+                <li class="nav-item" role="none">
+                    <a href="{{ url_for('appointment') }}" class="nav-link appointment-btn" role="menuitem">Book Appointment</a>
                 </li>
             </ul>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <main>
+    <main id="main-content" role="main">
         {% block content %}{% endblock %}
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="footer-container">
             <div class="footer-item">
-                <div class="footer-icon">📍</div>
+                <div class="footer-icon" aria-hidden="true">📍</div>
                 <div class="footer-text">
-                    <div>131-BWD, Fourth Floor، Commercial Broadway, DHA Phase 8, Lahore, 54000</div>
+                    <address>
+                        131-BWD, Fourth Floor، Commercial Broadway, DHA Phase 8, Lahore, 54000
+                    </address>
                 </div>
             </div>
             <div class="footer-item">
-                <div class="footer-icon">📞</div>
-                <div class="footer-text">+92 331 4864899</div>
+                <div class="footer-icon" aria-hidden="true">📞</div>
+                <div class="footer-text">
+                    <a href="tel:+923314864899" aria-label="Call us at +92 331 4864899">+92 331 4864899</a>
+                </div>
             </div>
+            <div class="footer-item">
+                <div class="footer-icon" aria-hidden="true">🕒</div>
+                <div class="footer-text">
+                    <span>Mon-Fri: 9:00 AM - 6:00 PM</span><br>
+                    <span>Sat: 9:00 AM - 3:00 PM</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Behzad Dental Clinic. All rights reserved. | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
         </div>
     </footer>
 
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/enhanced.js') }}"></script>
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/enhanced.js') }}" defer></script>
+    
+    <!-- Google Analytics (if you have it) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script> -->
 </body>
 </html>

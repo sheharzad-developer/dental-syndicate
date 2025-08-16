@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, flash
+from flask import Flask, render_template, request, jsonify, flash, send_from_directory
 import requests
 import pywhatkit as kit
 import datetime
@@ -31,6 +31,14 @@ def gallery():
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
+
+@app.route('/robots.txt')
+def robots_txt():
+    return send_from_directory('static', 'robots.txt')
+
+@app.route('/sitemap.xml')
+def sitemap_xml():
+    return send_from_directory('static', 'sitemap.xml')
 
 @app.route('/appointment', methods=['GET', 'POST'])
 def appointment():
