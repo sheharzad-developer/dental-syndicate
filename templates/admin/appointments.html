@@ -1,0 +1,441 @@
+{% extends "base.html" %}
+
+{% block title %}Admin - Appointments | Behzad Dental Clinic{% endblock %}
+
+{% block content %}
+<div class="admin-container">
+    <div class="admin-header">
+        <h1>📋 Appointment Management</h1>
+        <p>View and manage all appointments from Calendly</p>
+    </div>
+
+    <div class="admin-actions">
+        <div class="email-section">
+            <h3>📧 Send Appointment List</h3>
+            <form id="emailForm" class="email-form">
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter email address">
+                </div>
+                <button type="submit" class="btn-send-email">Send List via Email</button>
+            </form>
+            <div id="emailResult" class="result-message"></div>
+        </div>
+    </div>
+
+    <div class="appointments-summary">
+        <div class="summary-card">
+            <h3>Total Appointments</h3>
+            <span class="count">{{ appointments|length }}</span>
+        </div>
+        <div class="summary-card">
+            <h3>This Month</h3>
+            <span class="count">{{ appointments|selectattr('created_at', 'match', '.*2024-01.*')|list|length }}</span>
+        </div>
+    </div>
+
+    <div class="appointments-table-container">
+        <h3>All Appointments</h3>
+        {% if appointments %}
+            <div class="table-responsive">
+                <table class="appointments-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Service</th>
+                            <th>Date & Time</th>
+                            <th>Status</th>
+                            <th>Created</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for appointment in appointments %}
+                        <tr>
+                            <td>#{{ appointment.id or loop.index }}</td>
+                            <td class="name-cell">{{ appointment.name or 'N/A' }}</td>
+                            <td class="email-cell">{{ appointment.email or 'N/A' }}</td>
+                            <td>{{ appointment.phone or 'N/A' }}</td>
+                            <td class="service-cell">{{ appointment.service or 'Consultation' }}</td>
+                            <td class="datetime-cell">
+                                {% if appointment.date %}
+                                    <div class="date">{{ appointment.date[:10] }}</div>
+                                    <div class="time">{{ appointment.time[11:16] if appointment.time else 'N/A' }}</div>
+                                {% else %}
+                                    N/A
+                                {% endif %}
+                            </td>
+                            <td>
+                                <span class="status-badge status-{{ appointment.status or 'scheduled' }}">{{ appointment.status or 'Scheduled' }}</span>
+                            </td>
+                            <td class="created-cell">
+                                {% if appointment.created_at %}
+                                    {{ appointment.created_at[:10] }}
+                                {% else %}
+                                    N/A
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="no-appointments">
+                <div class="no-appointments-icon">📅</div>
+                <h3>No Appointments Found</h3>
+                <p>No appointments have been booked through Calendly yet.</p>
+                <a href="{{ url_for('appointment') }}" class="btn-primary">Book First Appointment</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<style>
+.admin-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+.admin-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, #2c5aa0 0%, #1e3d72 100%);
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(44, 90, 160, 0.3);
+}
+
+.admin-header h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5rem;
+}
+
+.admin-header p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+.admin-actions {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.email-section h3 {
+    color: #2c5aa0;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.email-form {
+    display: flex;
+    gap: 15px;
+    align-items: end;
+    flex-wrap: wrap;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 250px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #2c5aa0;
+}
+
+.btn-send-email {
+    background: #2c5aa0;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+
+.btn-send-email:hover {
+    background: #1e3d72;
+}
+
+.result-message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+}
+
+.result-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.result-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.appointments-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.summary-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-top: 4px solid #2c5aa0;
+}
+
+.summary-card h3 {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.summary-card .count {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2c5aa0;
+}
+
+.appointments-table-container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.appointments-table-container h3 {
+    margin: 0 0 25px 0;
+    color: #2c5aa0;
+    font-size: 1.5rem;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.appointments-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.appointments-table th,
+.appointments-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.appointments-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+    position: sticky;
+    top: 0;
+}
+
+.appointments-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+.name-cell {
+    font-weight: 600;
+    color: #2c5aa0;
+}
+
+.email-cell {
+    color: #666;
+    font-size: 13px;
+}
+
+.service-cell {
+    font-weight: 500;
+}
+
+.datetime-cell .date {
+    font-weight: 600;
+}
+
+.datetime-cell .time {
+    font-size: 12px;
+    color: #666;
+}
+
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-scheduled {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-completed {
+    background-color: #cce5ff;
+    color: #004085;
+}
+
+.status-cancelled {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.created-cell {
+    color: #666;
+    font-size: 13px;
+}
+
+.no-appointments {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+}
+
+.no-appointments-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.no-appointments h3 {
+    margin: 0 0 15px 0;
+    color: #333;
+}
+
+.no-appointments p {
+    margin: 0 0 25px 0;
+    font-size: 1.1rem;
+}
+
+.btn-primary {
+    background: #2c5aa0;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background: #1e3d72;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .admin-container {
+        padding: 10px;
+    }
+    
+    .admin-header {
+        padding: 20px;
+    }
+    
+    .admin-header h1 {
+        font-size: 2rem;
+    }
+    
+    .email-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .form-group {
+        min-width: auto;
+    }
+    
+    .appointments-table {
+        font-size: 12px;
+    }
+    
+    .appointments-table th,
+    .appointments-table td {
+        padding: 8px 4px;
+    }
+}
+</style>
+
+<script>
+document.getElementById('emailForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const email = document.getElementById('email').value;
+    const resultDiv = document.getElementById('emailResult');
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    
+    // Show loading state
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+    resultDiv.style.display = 'none';
+    
+    try {
+        const formData = new FormData();
+        formData.append('email', email);
+        
+        const response = await fetch('/admin/send-appointment-list', {
+            method: 'POST',
+            body: formData
+        });
+        
+        const result = await response.json();
+        
+        resultDiv.textContent = result.message;
+        resultDiv.className = `result-message ${result.success ? 'success' : 'error'}`;
+        resultDiv.style.display = 'block';
+        
+        if (result.success) {
+            document.getElementById('email').value = '';
+        }
+    } catch (error) {
+        resultDiv.textContent = 'Error sending email. Please try again.';
+        resultDiv.className = 'result-message error';
+        resultDiv.style.display = 'block';
+    } finally {
+        submitBtn.textContent = 'Send List via Email';
+        submitBtn.disabled = false;
+    }
+});
+</script>
+{% endblock %}

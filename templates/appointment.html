@@ -43,65 +43,30 @@
             </div>
         </div>
 
-        <!-- <div class="appointment-form" style="display: none;">
-            <form id="appointmentForm">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required>
+        <div class="calendly-section">
+            <div class="calendly-header">
+                <h2>Schedule Your Appointment</h2>
+                <p>Choose a convenient time that works for you. Our team will confirm your appointment shortly.</p>
+            </div>
+            
+            <!-- Calendly inline widget begin -->
+            <div class="calendly-inline-widget" data-url="https://calendly.com/behzad-dental-clinic/consultation" style="min-width:320px;height:700px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            <!-- Calendly inline widget end -->
+            
+            <div class="appointment-note">
+                <div class="note-icon">💡</div>
+                <div class="note-content">
+                    <h4>What to Expect</h4>
+                    <ul>
+                        <li>You'll receive an email confirmation with appointment details</li>
+                        <li>Our team will send you a reminder 24 hours before your visit</li>
+                        <li>Please arrive 15 minutes early for paperwork</li>
+                        <li>Bring your insurance card and a valid ID</li>
+                    </ul>
                 </div>
-                
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="date">Preferred Date</label>
-                        <input type="date" id="date" name="date" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="time">Preferred Time</label>
-                        <select id="time" name="time" required>
-                            <option value="">Select Time</option>
-                            <option value="17:00">5:00 PM</option>
-                            <option value="18:00">6:00 PM</option>
-                            <option value="19:00">7:00 PM</option>
-                            <option value="20:00">8:00 PM</option>
-                            <option value="21:00">9:00 PM</option>
-                            <option value="22:00">10:00 PM</option>
-                            <option value="23:00">11:00 PM</option>
-                        </select>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="service">Service Needed</label>
-                    <select id="service" name="service" required>
-                        <option value="">Select Service</option>
-                        <option value="general">General Dentistry</option>
-                        <option value="cosmetic">Cosmetic Dentistry</option>
-                        <option value="orthodontics">Orthodontics</option>
-                        <option value="implants">Dental Implants</option>
-                        <option value="emergency">Emergency Care</option>
-                        <option value="consultation">Consultation</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Additional Information</label>
-                    <textarea id="message" name="message" rows="4" placeholder="Please describe any specific concerns or requirements..."></textarea>
-                </div>
-                
-                <button type="submit" class="submit-btn">Book Appointment</button>
-            </form>
-        </div> -->
+            </div>
+        </div>
     </div>
 </section>
 {% endblock %}

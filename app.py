@@ -1,16 +1,100 @@
 from flask import Flask, render_template, request, jsonify, flash, send_from_directory
+from flask_mail import Mail, Message
 import requests
 import pywhatkit as kit
 import datetime
 import threading
 import time
 import os
+import json
+from datetime import datetime as dt
 
 app = Flask(__name__)
 app.secret_key = '37d54b82eb57a56f4a2aa7f3079923d122517cbe307df03db88ecf05bf02702d'  # Change this to a secure secret key
 
+# Email Configuration
+app.config['MAIL_SERVER'] = os.environ.get('MAIL_SERVER', 'smtp.gmail.com')
+app.config['MAIL_PORT'] = int(os.environ.get('MAIL_PORT', 587))
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
+app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME', 'your-email@gmail.com')
+app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD', 'your-app-password')
+app.config['MAIL_DEFAULT_SENDER'] = os.environ.get('MAIL_DEFAULT_SENDER', 'Behzad Dental Clinic <your-email@gmail.com>')
+
+# Initialize Flask-Mail
+mail = Mail(app)
+
 # SMS Configuration
 SMS_API_URL = "https://textbelt.com/text"  # Free SMS service
+
+# Appointment storage file
+APPOINTMENTS_FILE = 'appointments.json'
+
+# Helper functions for appointment management
+def load_appointments():
+    """Load appointments from JSON file"""
+    try:
+        if os.path.exists(APPOINTMENTS_FILE):
+            with open(APPOINTMENTS_FILE, 'r') as f:
+                return json.load(f)
+        return []
+    except Exception as e:
+        print(f"Error loading appointments: {e}")
+        return []
+
+def save_appointment(appointment_data):
+    """Save appointment to JSON file"""
+    try:
+        appointments = load_appointments()
+        appointment_data['id'] = len(appointments) + 1
+        appointment_data['created_at'] = dt.now().isoformat()
+        appointment_data['source'] = 'calendly'
+        appointments.append(appointment_data)
+        
+        with open(APPOINTMENTS_FILE, 'w') as f:
+            json.dump(appointments, f, indent=2)
+        return True
+    except Exception as e:
+        print(f"Error saving appointment: {e}")
+        return False
+
+def send_appointment_list_email(recipient_email, appointments):
+    """Send appointment list via email"""
+    try:
+        msg = Message(
+            subject='Appointment List - Behzad Dental Clinic',
+            recipients=[recipient_email]
+        )
+        
+        # Create HTML email content
+        html_content = render_template('email/appointment_list.html', appointments=appointments)
+        msg.html = html_content
+        
+        # Create plain text version
+        text_content = f"""Appointment List - Behzad Dental Clinic
+
+Total Appointments: {len(appointments)}
+
+"""
+        
+        for i, apt in enumerate(appointments, 1):
+            text_content += f"""{i}. {apt.get('name', 'N/A')}
+   Email: {apt.get('email', 'N/A')}
+   Phone: {apt.get('phone', 'N/A')}
+   Date: {apt.get('date', 'N/A')}
+   Time: {apt.get('time', 'N/A')}
+   Service: {apt.get('service', 'N/A')}
+   Created: {apt.get('created_at', 'N/A')}
+
+"""
+        
+        msg.body = text_content
+        
+        mail.send(msg)
+        return True
+    except Exception as e:
+        print(f"Error sending email: {e}")
+        return False
 
 @app.route('/')
 def home():
@@ -150,6 +234,71 @@ Additional Info: {message if message else 'None'}"""
             return jsonify({'success': False, 'message': 'An error occurred. Please try again.'})
     
     return render_template('appointment.html')
+
+@app.route('/calendly-webhook', methods=['POST'])
+def calendly_webhook():
+    """Handle Calendly webhook for new appointments"""
+    try:
+        data = request.get_json()
+        
+        # Extract appointment data from Calendly webhook
+        if data and data.get('event') == 'invitee.created':
+            payload = data.get('payload', {})
+            
+            appointment_data = {
+                'name': payload.get('name', ''),
+                'email': payload.get('email', ''),
+                'phone': payload.get('text_reminder_number', ''),
+                'date': payload.get('scheduled_event', {}).get('start_time', ''),
+                'time': payload.get('scheduled_event', {}).get('start_time', ''),
+                'service': payload.get('scheduled_event', {}).get('name', 'Consultation'),
+                'calendly_uri': payload.get('uri', ''),
+                'status': 'scheduled'
+            }
+            
+            # Save appointment to local storage
+            if save_appointment(appointment_data):
+                print(f"New Calendly appointment saved: {appointment_data['name']}")
+            
+        return jsonify({'status': 'success'}), 200
+    except Exception as e:
+        print(f"Error processing Calendly webhook: {e}")
+        return jsonify({'status': 'error', 'message': str(e)}), 400
+
+@app.route('/admin/appointments')
+def admin_appointments():
+    """Admin page to view all appointments"""
+    appointments = load_appointments()
+    return render_template('admin/appointments.html', appointments=appointments)
+
+@app.route('/admin/send-appointment-list', methods=['POST'])
+def send_appointment_list():
+    """Send appointment list via email"""
+    try:
+        email = request.form.get('email')
+        if not email:
+            return jsonify({'success': False, 'message': 'Email address is required'})
+        
+        appointments = load_appointments()
+        
+        if send_appointment_list_email(email, appointments):
+            return jsonify({
+                'success': True, 
+                'message': f'Appointment list sent successfully to {email}'
+            })
+        else:
+            return jsonify({
+                'success': False, 
+                'message': 'Failed to send email. Please check email configuration.'
+            })
+    except Exception as e:
+        return jsonify({'success': False, 'message': f'Error: {str(e)}'})
+
+@app.route('/api/appointments')
+def api_appointments():
+    """API endpoint to get appointments as JSON"""
+    appointments = load_appointments()
+    return jsonify(appointments)
 
 if __name__ == '__main__':
     app.run(debug=False, host='0.0.0.0', port=int(os.environ.get('PORT', 8000)))
