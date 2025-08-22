@@ -1,46 +1,13 @@
 {% extends "base.html" %} {% block title %}Gallery - Behzad Dental Clinic{%
 endblock %} {% block content %}
 <!-- Gallery Hero Section -->
-<section class="gallery-hero">
-  <div class="gallery-hero-background">
-    <div class="gallery-hero-particles"></div>
-    <div class="gallery-hero-waves">
-      <div class="gallery-wave wave-1"></div>
-      <div class="gallery-wave wave-2"></div>
-      <div class="gallery-wave wave-3"></div>
-    </div>
-  </div>
-
-  <div class="gallery-hero-container">
-    <div class="gallery-hero-content">
-      <div class="gallery-hero-badge">
-        <span class="badge-icon">📸</span>
-        <span class="badge-text">Our Work</span>
-        <div class="badge-glow"></div>
-      </div>
-
-      <h1 class="gallery-hero-title">
-        <span class="title-line title-line-1">Treatment</span>
-        <span class="title-line title-line-2">Gallery</span>
-        <div class="title-underline"></div>
-      </h1>
-
-      <p class="gallery-hero-subtitle">
-        <span class="subtitle-highlight">Before & After</span> •
-        <span class="subtitle-highlight">Success Stories</span> •
-        <span class="subtitle-highlight">Quality Results</span>
-      </p>
-    </div>
-  </div>
-</section>
-
 <!-- Gallery Grid Section -->
 <section class="gallery-grid-section">
   <div class="gallery-container">
     <div class="section-header">
       <div class="section-badge">
         <span class="badge-icon">🎨</span>
-        <span class="badge-text">Our Portfolio</span>
+        <span class="badge-text">Our Gallery</span>
       </div>
       <h2 class="section-title">Transformative Results</h2>
       <p class="section-subtitle">
@@ -53,9 +20,8 @@ endblock %} {% block content %}
       .slider {
         position: relative;
         width: 100%;
-        max-width: 1100px;
-        margin: 30px auto;
-        border-radius: 16px;
+        margin: 0;
+        border-radius: 0;
         overflow: hidden;
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         background: linear-gradient(
@@ -68,19 +34,25 @@ endblock %} {% block content %}
       .slider-viewport {
         position: relative;
         width: 100%;
-        height: 460px;
+        height: 100vh;
         overflow: hidden;
       }
       .slider-track {
         display: flex;
         width: 100%;
         height: 100%;
-        transition: transform 600ms cubic-bezier(0.22, 0.61, 0.36, 1);
+        transition: transform 1200ms cubic-bezier(0.4, 0, 0.2, 1);
       }
       .slide {
         position: relative;
         min-width: 100%;
         height: 100%;
+        opacity: 1;
+        transition: opacity 600ms ease-in-out;
+      }
+      
+      .slide.fade-out {
+        opacity: 0.7;
       }
       .slide img {
         width: 100%;
@@ -88,7 +60,7 @@ endblock %} {% block content %}
         object-fit: cover;
         display: block;
         transform: scale(1.02);
-        transition: transform 600ms ease;
+        transition: transform 1200ms cubic-bezier(0.4, 0, 0.2, 1);
       }
       .slide-caption {
         position: absolute;
@@ -108,6 +80,7 @@ endblock %} {% block content %}
       }
       .slider:hover .slide img {
         transform: scale(1.05);
+        transition: transform 1200ms cubic-bezier(0.4, 0, 0.2, 1);
       }
       .slider-arrow {
         position: absolute;
@@ -124,11 +97,12 @@ endblock %} {% block content %}
         justify-content: center;
         cursor: pointer;
         z-index: 3;
-        transition: all 0.2s ease;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       }
       .slider-arrow:hover {
         background: #fff;
-        transform: translateY(-50%) scale(1.04);
+        transform: translateY(-50%) scale(1.08);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
       }
       .slider-prev {
         left: 14px;
@@ -153,12 +127,103 @@ endblock %} {% block content %}
         background: rgba(255, 255, 255, 0.55);
         border: 1px solid rgba(255, 255, 255, 0.7);
         cursor: pointer;
-        transition: all 0.2s ease;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       }
       .slider-dots .dot.active {
         background: #fff;
-        transform: scale(1.15);
+        transform: scale(1.25);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
       }
+      
+             /* Image Modal Styles */
+       .image-modal {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         z-index: 10000;
+         opacity: 0;
+         visibility: hidden;
+         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+       }
+       
+       .image-modal.active {
+         opacity: 1;
+         visibility: visible;
+       }
+       
+       .modal-backdrop {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background: rgba(0, 0, 0, 0.95);
+         cursor: pointer;
+         backdrop-filter: blur(5px);
+       }
+       
+       .modal-content {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%) scale(0.9);
+         max-width: 95vw;
+         max-height: 95vh;
+         background: white;
+         border-radius: 12px;
+         overflow: hidden;
+         box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+         transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+       }
+       
+       .image-modal.active .modal-content {
+         transform: translate(-50%, -50%) scale(1);
+       }
+       
+       .modal-close {
+         position: absolute;
+         top: 15px;
+         right: 20px;
+         background: rgba(0, 0, 0, 0.8);
+         color: white;
+         border: none;
+         font-size: 28px;
+         width: 45px;
+         height: 45px;
+         border-radius: 50%;
+         cursor: pointer;
+         z-index: 10001;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         transition: all 0.2s ease;
+         font-weight: bold;
+       }
+       
+       .modal-close:hover {
+         background: rgba(0, 0, 0, 1);
+         transform: scale(1.1);
+       }
+       
+       .modal-image {
+         width: 100%;
+         height: auto;
+         max-height: 85vh;
+         object-fit: contain;
+         display: block;
+       }
+       
+       .modal-caption {
+         padding: 20px 25px;
+         background: white;
+         font-size: 18px;
+         color: #333;
+         text-align: center;
+         border-top: 1px solid #eee;
+         font-weight: 500;
+       }
       @media (max-width: 768px) {
         .slider-viewport {
           height: 320px;
@@ -178,7 +243,7 @@ endblock %} {% block content %}
     <!-- Transformations Slider -->
     <div class="gallery-category">
       <h3 class="category-title">
-        <span class="category-icon">✨</span> Before & After Transformations
+        <span class="category-icon">✨</span> Patient Care Gallery
       </h3>
       <div class="slider" data-slider="transformations">
         <div class="slider-viewport">
@@ -243,111 +308,6 @@ endblock %} {% block content %}
         </div>
       </div>
     </div>
-
-    <!-- Before & After Gallery -->
-    <!-- <div class="gallery-category">
-      <h3 class="category-title">
-        <span class="category-icon">✨</span>
-        Before & After Transformations
-      </h3>
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <div class="gallery-frame">
-            <img
-              src="{{ url_for('static', filename='images/images/doctors-patient1.jpeg') }}"
-              alt="Doctor with Patient - Treatment Session"
-              class="gallery-image"
-            />
-            <div class="gallery-overlay">
-              <div class="overlay-content">
-                <h4>Doctor-Patient Consultation</h4>
-                <p>Professional dental care session</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <div class="gallery-frame">
-            <img
-              src="{{ url_for('static', filename='images/images/doctors-patient2.jpeg') }}"
-              alt="Doctor with Patient - Examination"
-              class="gallery-image"
-            />
-            <div class="gallery-overlay">
-              <div class="overlay-content">
-                <h4>Dental Examination</h4>
-                <p>Thorough oral health assessment</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <div class="gallery-frame">
-            <img
-              src="{{ url_for('static', filename='images/images/doctors-patient3.jpeg') }}"
-              alt="Doctor with Patient - Treatment"
-              class="gallery-image"
-            />
-            <div class="gallery-overlay">
-              <div class="overlay-content">
-                <h4>Treatment Session</h4>
-                <p>Professional dental procedure</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <div class="gallery-frame">
-            <img
-              src="{{ url_for('static', filename='images/images/doctors-patient4.jpeg') }}"
-              alt="Doctor with Patient - Consultation"
-              class="gallery-image"
-            />
-            <div class="gallery-overlay">
-              <div class="overlay-content">
-                <h4>Patient Consultation</h4>
-                <p>Personalized treatment planning</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <div class="gallery-frame">
-            <img
-              src="{{ url_for('static', filename='images/images/doctors-patient5.jpeg') }}"
-              alt="Doctor with Patient - Care"
-              class="gallery-image"
-            />
-            <div class="gallery-overlay">
-              <div class="overlay-content">
-                <h4>Comprehensive Care</h4>
-                <p>Detailed patient treatment</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <div class="gallery-frame">
-            <img
-              src="{{ url_for('static', filename='images/images/doctors-patient6.jpeg') }}"
-              alt="Doctor with Patient - Follow-up"
-              class="gallery-image"
-            />
-            <div class="gallery-overlay">
-              <div class="overlay-content">
-                <h4>Follow-up Care</h4>
-                <p>Ongoing patient support</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
 
     <!-- Facilities Slider -->
     <div class="gallery-category">
@@ -467,7 +427,16 @@ endblock %} {% block content %}
       function goTo(i) {
         const total = slides.length;
         index = (i + total) % total;
+        
+        // Add smooth transition class
+        track.style.transition = "transform 1200ms cubic-bezier(0.4, 0, 0.2, 1)";
         track.style.transform = "translateX(" + -index * 100 + "%)";
+        
+        // Remove transition class after animation completes
+        setTimeout(() => {
+          track.style.transition = "";
+        }, 1200);
+        
         setActiveDot();
       }
       function buildDots() {
@@ -487,7 +456,7 @@ endblock %} {% block content %}
       }
       function start() {
         stop();
-        timer = setInterval(() => goTo(index + 1), 4000);
+        timer = setInterval(() => goTo(index + 1), 3000);
       }
       function stop() {
         if (timer) {
@@ -507,6 +476,18 @@ endblock %} {% block content %}
           goTo(index + 1);
           start();
         });
+             // Add click functionality to slides for viewing
+       slides.forEach((slide, i) => {
+         const img = slide.querySelector('img');
+         if (img) {
+           img.style.cursor = 'pointer';
+           img.addEventListener('click', function(e) {
+             e.stopPropagation();
+             openImageModal(this.src, this.alt);
+           });
+         }
+       });
+      
       root.addEventListener("mouseenter", stop);
       root.addEventListener("mouseleave", start);
       buildDots();
@@ -518,6 +499,47 @@ endblock %} {% block content %}
         .querySelectorAll(".gallery-grid-section .gallery-grid")
         .forEach((g) => (g.style.display = "none"));
       document.querySelectorAll(".slider").forEach(initSlider);
+    });
+    
+         // Modal functionality for image viewing
+     function openImageModal(src, alt) {
+       const modal = document.createElement('div');
+       modal.className = 'image-modal';
+       modal.innerHTML = `
+         <div class="modal-backdrop"></div>
+         <div class="modal-content">
+           <button class="modal-close">&times;</button>
+           <img src="${src}" alt="${alt}" class="modal-image">
+           <div class="modal-caption">${alt}</div>
+         </div>
+       `;
+       
+       // Add event listeners
+       const backdrop = modal.querySelector('.modal-backdrop');
+       const closeBtn = modal.querySelector('.modal-close');
+       
+       backdrop.addEventListener('click', () => closeImageModal(modal));
+       closeBtn.addEventListener('click', () => closeImageModal(modal));
+       
+       document.body.appendChild(modal);
+       setTimeout(() => modal.classList.add('active'), 10);
+     }
+     
+     function closeImageModal(modal) {
+       modal.classList.remove('active');
+       setTimeout(() => {
+         if (modal.parentNode) {
+           modal.parentNode.removeChild(modal);
+         }
+       }, 300);
+     }
+    
+    // Close modal on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const modal = document.querySelector('.image-modal.active');
+        if (modal) closeImageModal(modal);
+      }
     });
   })();
 </script>
