@@ -1,246 +1,524 @@
-{% extends "base.html" %}
-
-{% block title %}Gallery - Behzad Dental Clinic{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% block title %}Gallery - Behzad Dental Clinic{%
+endblock %} {% block content %}
 <!-- Gallery Hero Section -->
 <section class="gallery-hero">
-    <div class="gallery-hero-background">
-        <div class="gallery-hero-particles"></div>
-        <div class="gallery-hero-waves">
-            <div class="gallery-wave wave-1"></div>
-            <div class="gallery-wave wave-2"></div>
-            <div class="gallery-wave wave-3"></div>
-        </div>
+  <div class="gallery-hero-background">
+    <div class="gallery-hero-particles"></div>
+    <div class="gallery-hero-waves">
+      <div class="gallery-wave wave-1"></div>
+      <div class="gallery-wave wave-2"></div>
+      <div class="gallery-wave wave-3"></div>
     </div>
-    
-    <div class="gallery-hero-container">
-        <div class="gallery-hero-content">
-            <div class="gallery-hero-badge">
-                <span class="badge-icon">📸</span>
-                <span class="badge-text">Our Work</span>
-                <div class="badge-glow"></div>
-            </div>
-            
-            <h1 class="gallery-hero-title">
-                <span class="title-line title-line-1">Treatment</span>
-                <span class="title-line title-line-2">Gallery</span>
-                <div class="title-underline"></div>
-            </h1>
-            
-            <p class="gallery-hero-subtitle">
-                <span class="subtitle-highlight">Before & After</span> • 
-                <span class="subtitle-highlight">Success Stories</span> • 
-                <span class="subtitle-highlight">Quality Results</span>
-            </p>
-        </div>
+  </div>
+
+  <div class="gallery-hero-container">
+    <div class="gallery-hero-content">
+      <div class="gallery-hero-badge">
+        <span class="badge-icon">📸</span>
+        <span class="badge-text">Our Work</span>
+        <div class="badge-glow"></div>
+      </div>
+
+      <h1 class="gallery-hero-title">
+        <span class="title-line title-line-1">Treatment</span>
+        <span class="title-line title-line-2">Gallery</span>
+        <div class="title-underline"></div>
+      </h1>
+
+      <p class="gallery-hero-subtitle">
+        <span class="subtitle-highlight">Before & After</span> •
+        <span class="subtitle-highlight">Success Stories</span> •
+        <span class="subtitle-highlight">Quality Results</span>
+      </p>
     </div>
+  </div>
 </section>
 
 <!-- Gallery Grid Section -->
 <section class="gallery-grid-section">
-    <div class="gallery-container">
-        <div class="section-header">
-            <div class="section-badge">
-                <span class="badge-icon">🎨</span>
-                <span class="badge-text">Our Portfolio</span>
-            </div>
-            <h2 class="section-title">Transformative Results</h2>
-            <p class="section-subtitle">Witness the excellence of our dental treatments through these remarkable transformations</p>
-        </div>
-        
-        <!-- Before & After Gallery -->
-        <div class="gallery-category">
-            <h3 class="category-title">
-                <span class="category-icon">✨</span>
-                Before & After Transformations
-            </h3>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <div class="gallery-frame">
-                        <div class="image-placeholder">
-                            <div class="placeholder-icon">🦷</div>
-                            <div class="placeholder-text">Dental Implant<br>Before & After</div>
-                        </div>
-                        <div class="gallery-overlay">
-                            <div class="overlay-content">
-                                <h4>Dental Implant</h4>
-                                <p>Complete tooth replacement</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <div class="gallery-frame">
-                        <div class="image-placeholder">
-                            <div class="placeholder-icon">😊</div>
-                            <div class="placeholder-text">Smile Makeover<br>Transformation</div>
-                        </div>
-                        <div class="gallery-overlay">
-                            <div class="overlay-content">
-                                <h4>Smile Makeover</h4>
-                                <p>Complete aesthetic transformation</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <div class="gallery-frame">
-                        <div class="image-placeholder">
-                            <div class="placeholder-icon">🦷</div>
-                            <div class="placeholder-text">Orthodontic<br>Treatment</div>
-                        </div>
-                        <div class="gallery-overlay">
-                            <div class="overlay-content">
-                                <h4>Orthodontic Treatment</h4>
-                                <p>Teeth alignment correction</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <div class="gallery-frame">
-                        <div class="image-placeholder">
-                            <div class="placeholder-icon">✨</div>
-                            <div class="placeholder-text">Teeth Whitening<br>Results</div>
-                        </div>
-                        <div class="gallery-overlay">
-                            <div class="overlay-content">
-                                <h4>Teeth Whitening</h4>
-                                <p>Professional whitening results</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <div class="gallery-frame">
-                        <div class="image-placeholder">
-                            <div class="placeholder-icon">👑</div>
-                            <div class="placeholder-text">Crown & Bridge<br>Work</div>
-                        </div>
-                        <div class="gallery-overlay">
-                            <div class="overlay-content">
-                                <h4>Crown & Bridge</h4>
-                                <p>Restorative excellence</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <div class="gallery-frame">
-                        <div class="image-placeholder">
-                            <div class="placeholder-icon">🦷</div>
-                            <div class="placeholder-text">Cosmetic<br>Dentistry</div>
-                        </div>
-                        <div class="gallery-overlay">
-                            <div class="overlay-content">
-                                <h4>Cosmetic Dentistry</h4>
-                                <p>Aesthetic enhancement</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Clinic Facilities Gallery -->
-        <div class="gallery-category">
-            <h3 class="category-title">
-                <span class="category-icon">🏥</span>
-                Our Modern Facility
-            </h3>
-            <div class="gallery-grid facility-grid">
-                <div class="gallery-item">
-                    <div class="gallery-frame">
-                        <div class="image-placeholder">
-                            <div class="placeholder-icon">🏥</div>
-                            <div class="placeholder-text">Reception<br>Area</div>
-                        </div>
-                        <div class="gallery-overlay">
-                            <div class="overlay-content">
-                                <h4>Reception Area</h4>
-                                <p>Welcoming entrance</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <div class="gallery-frame">
-                        <div class="image-placeholder">
-                            <div class="placeholder-icon">🦷</div>
-                            <div class="placeholder-text">Treatment<br>Room</div>
-                        </div>
-                        <div class="gallery-overlay">
-                            <div class="overlay-content">
-                                <h4>Treatment Room</h4>
-                                <p>State-of-the-art equipment</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <div class="gallery-frame">
-                        <div class="image-placeholder">
-                            <div class="placeholder-icon">⚕️</div>
-                            <div class="placeholder-text">Surgical<br>Suite</div>
-                        </div>
-                        <div class="gallery-overlay">
-                            <div class="overlay-content">
-                                <h4>Surgical Suite</h4>
-                                <p>Advanced surgical facility</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <div class="gallery-frame">
-                        <div class="image-placeholder">
-                            <div class="placeholder-icon">🪑</div>
-                            <div class="placeholder-text">Waiting<br>Lounge</div>
-                        </div>
-                        <div class="gallery-overlay">
-                            <div class="overlay-content">
-                                <h4>Waiting Lounge</h4>
-                                <p>Comfortable patient area</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="gallery-container">
+    <div class="section-header">
+      <div class="section-badge">
+        <span class="badge-icon">🎨</span>
+        <span class="badge-text">Our Portfolio</span>
+      </div>
+      <h2 class="section-title">Transformative Results</h2>
+      <p class="section-subtitle">
+        Witness the excellence of our dental treatments through these remarkable
+        transformations
+      </p>
     </div>
+
+    <style>
+      .slider {
+        position: relative;
+        width: 100%;
+        max-width: 1100px;
+        margin: 30px auto;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.06),
+          rgba(255, 255, 255, 0)
+        );
+        backdrop-filter: blur(6px);
+      }
+      .slider-viewport {
+        position: relative;
+        width: 100%;
+        height: 460px;
+        overflow: hidden;
+      }
+      .slider-track {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        transition: transform 600ms cubic-bezier(0.22, 0.61, 0.36, 1);
+      }
+      .slide {
+        position: relative;
+        min-width: 100%;
+        height: 100%;
+      }
+      .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transform: scale(1.02);
+        transition: transform 600ms ease;
+      }
+      .slide-caption {
+        position: absolute;
+        left: 20px;
+        bottom: 18px;
+        color: #fff;
+        background: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.55),
+          rgba(0, 0, 0, 0)
+        );
+        padding: 10px 14px;
+        border-radius: 10px;
+        backdrop-filter: blur(4px);
+        font-weight: 600;
+        letter-spacing: 0.2px;
+      }
+      .slider:hover .slide img {
+        transform: scale(1.05);
+      }
+      .slider-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 0;
+        background: rgba(255, 255, 255, 0.85);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 3;
+        transition: all 0.2s ease;
+      }
+      .slider-arrow:hover {
+        background: #fff;
+        transform: translateY(-50%) scale(1.04);
+      }
+      .slider-prev {
+        left: 14px;
+      }
+      .slider-next {
+        right: 14px;
+      }
+      .slider-dots {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 12px;
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        z-index: 3;
+      }
+      .slider-dots .dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .slider-dots .dot.active {
+        background: #fff;
+        transform: scale(1.15);
+      }
+      @media (max-width: 768px) {
+        .slider-viewport {
+          height: 320px;
+        }
+        .slider-arrow {
+          width: 38px;
+          height: 38px;
+        }
+        .slide-caption {
+          font-size: 0.9rem;
+          left: 12px;
+          right: 12px;
+        }
+      }
+    </style>
+
+    <!-- Transformations Slider -->
+    <div class="gallery-category">
+      <h3 class="category-title">
+        <span class="category-icon">✨</span> Before & After Transformations
+      </h3>
+      <div class="slider" data-slider="transformations">
+        <div class="slider-viewport">
+          <div class="slider-track">
+            <div class="slide">
+              <img
+                src="{{ url_for('static', filename='images/images/doctors-patient1.jpeg') }}"
+                alt="Doctor-Patient Consultation"
+              />
+              <div class="slide-caption">Doctor-Patient Consultation</div>
+            </div>
+            <div class="slide">
+              <img
+                src="{{ url_for('static', filename='images/images/doctors-patient2.jpeg') }}"
+                alt="Dental Examination"
+              />
+              <div class="slide-caption">Dental Examination</div>
+            </div>
+            <div class="slide">
+              <img
+                src="{{ url_for('static', filename='images/images/doctors-patient3.jpeg') }}"
+                alt="Treatment Session"
+              />
+              <div class="slide-caption">Treatment Session</div>
+            </div>
+            <div class="slide">
+              <img
+                src="{{ url_for('static', filename='images/images/doctors-patient4.jpeg') }}"
+                alt="Patient Consultation"
+              />
+              <div class="slide-caption">Patient Consultation</div>
+            </div>
+            <div class="slide">
+              <img
+                src="{{ url_for('static', filename='images/images/doctors-patient5.jpeg') }}"
+                alt="Comprehensive Care"
+              />
+              <div class="slide-caption">Comprehensive Care</div>
+            </div>
+            <div class="slide">
+              <img
+                src="{{ url_for('static', filename='images/images/doctors-patient6.jpeg') }}"
+                alt="Follow-up Care"
+              />
+              <div class="slide-caption">Follow-up Care</div>
+            </div>
+            <div class="slide">
+              <img
+                src="{{ url_for('static', filename='images/images/doctors-patient7.jpeg') }}"
+                alt="Patient Care"
+              />
+              <div class="slide-caption">Personalized Care</div>
+            </div>
+          </div>
+          <button class="slider-arrow slider-prev" aria-label="Previous">
+            &#10094;
+          </button>
+          <button class="slider-arrow slider-next" aria-label="Next">
+            &#10095;
+          </button>
+          <div class="slider-dots" aria-label="Slide indicators"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Before & After Gallery -->
+    <!-- <div class="gallery-category">
+      <h3 class="category-title">
+        <span class="category-icon">✨</span>
+        Before & After Transformations
+      </h3>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <div class="gallery-frame">
+            <img
+              src="{{ url_for('static', filename='images/images/doctors-patient1.jpeg') }}"
+              alt="Doctor with Patient - Treatment Session"
+              class="gallery-image"
+            />
+            <div class="gallery-overlay">
+              <div class="overlay-content">
+                <h4>Doctor-Patient Consultation</h4>
+                <p>Professional dental care session</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-frame">
+            <img
+              src="{{ url_for('static', filename='images/images/doctors-patient2.jpeg') }}"
+              alt="Doctor with Patient - Examination"
+              class="gallery-image"
+            />
+            <div class="gallery-overlay">
+              <div class="overlay-content">
+                <h4>Dental Examination</h4>
+                <p>Thorough oral health assessment</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-frame">
+            <img
+              src="{{ url_for('static', filename='images/images/doctors-patient3.jpeg') }}"
+              alt="Doctor with Patient - Treatment"
+              class="gallery-image"
+            />
+            <div class="gallery-overlay">
+              <div class="overlay-content">
+                <h4>Treatment Session</h4>
+                <p>Professional dental procedure</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-frame">
+            <img
+              src="{{ url_for('static', filename='images/images/doctors-patient4.jpeg') }}"
+              alt="Doctor with Patient - Consultation"
+              class="gallery-image"
+            />
+            <div class="gallery-overlay">
+              <div class="overlay-content">
+                <h4>Patient Consultation</h4>
+                <p>Personalized treatment planning</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-frame">
+            <img
+              src="{{ url_for('static', filename='images/images/doctors-patient5.jpeg') }}"
+              alt="Doctor with Patient - Care"
+              class="gallery-image"
+            />
+            <div class="gallery-overlay">
+              <div class="overlay-content">
+                <h4>Comprehensive Care</h4>
+                <p>Detailed patient treatment</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-frame">
+            <img
+              src="{{ url_for('static', filename='images/images/doctors-patient6.jpeg') }}"
+              alt="Doctor with Patient - Follow-up"
+              class="gallery-image"
+            />
+            <div class="gallery-overlay">
+              <div class="overlay-content">
+                <h4>Follow-up Care</h4>
+                <p>Ongoing patient support</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- Facilities Slider -->
+    <div class="gallery-category">
+      <h3 class="category-title">
+        <span class="category-icon">🏥</span> Our Modern Facility
+      </h3>
+      <div class="slider" data-slider="facilities">
+        <div class="slider-viewport">
+          <div class="slider-track">
+            <div class="slide">
+              <img
+                src="{{ url_for('static', filename='images/images/reception1.jpeg') }}"
+                alt="Reception Area"
+              />
+              <div class="slide-caption">Reception Area</div>
+            </div>
+            <div class="slide">
+              <img
+                src="{{ url_for('static', filename='images/images/reception2.jpeg') }}"
+                alt="Reception Desk"
+              />
+              <div class="slide-caption">Reception Desk</div>
+            </div>
+            <div class="slide">
+              <img
+                src="{{ url_for('static', filename='images/images/reception3.jpeg') }}"
+                alt="Reception Lobby"
+              />
+              <div class="slide-caption">Reception Lobby</div>
+            </div>
+            <div class="slide">
+              <img
+                src="{{ url_for('static', filename='images/images/surgeryroom1.jpeg') }}"
+                alt="Surgery Room"
+              />
+              <div class="slide-caption">Surgery Room</div>
+            </div>
+            <div class="slide">
+              <img
+                src="{{ url_for('static', filename='images/images/surgeryroom2.jpeg') }}"
+                alt="Surgical Suite"
+              />
+              <div class="slide-caption">Surgical Suite</div>
+            </div>
+            <div class="slide">
+              <img
+                src="{{ url_for('static', filename='images/images/surgeryroom3.jpeg') }}"
+                alt="Advanced Equipment"
+              />
+              <div class="slide-caption">Advanced Equipment</div>
+            </div>
+            <div class="slide">
+              <img
+                src="{{ url_for('static', filename='images/images/waitingroom1.jpeg') }}"
+                alt="Waiting Lounge"
+              />
+              <div class="slide-caption">Waiting Lounge</div>
+            </div>
+          </div>
+          <button class="slider-arrow slider-prev" aria-label="Previous">
+            &#10094;
+          </button>
+          <button class="slider-arrow slider-next" aria-label="Next">
+            &#10095;
+          </button>
+          <div class="slider-dots" aria-label="Slide indicators"></div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
 </section>
 
 <!-- Call to Action Section -->
 <section class="gallery-cta">
-    <div class="gallery-cta-background">
-        <div class="gallery-cta-particles"></div>
+  <div class="gallery-cta-background">
+    <div class="gallery-cta-particles"></div>
+  </div>
+
+  <div class="gallery-cta-container">
+    <div class="gallery-cta-content">
+      <h2>Ready for Your Transformation?</h2>
+      <p>
+        Join our gallery of success stories with a personalized treatment plan
+      </p>
+      <div class="gallery-cta-buttons">
+        <a href="{{ url_for('appointment') }}" class="cta-btn primary">
+          <span class="btn-text">Book Consultation</span>
+          <span class="btn-icon">📅</span>
+          <div class="btn-glow"></div>
+        </a>
+        <a href="{{ url_for('contact') }}" class="cta-btn secondary">
+          <span class="btn-text">Contact Us</span>
+          <span class="btn-icon">📞</span>
+        </a>
+      </div>
     </div>
-    
-    <div class="gallery-cta-container">
-        <div class="gallery-cta-content">
-            <h2>Ready for Your Transformation?</h2>
-            <p>Join our gallery of success stories with a personalized treatment plan</p>
-            <div class="gallery-cta-buttons">
-                <a href="{{ url_for('appointment') }}" class="cta-btn primary">
-                    <span class="btn-text">Book Consultation</span>
-                    <span class="btn-icon">📅</span>
-                    <div class="btn-glow"></div>
-                </a>
-                <a href="{{ url_for('contact') }}" class="cta-btn secondary">
-                    <span class="btn-text">Contact Us</span>
-                    <span class="btn-icon">📞</span>
-                </a>
-            </div>
-        </div>
-    </div>
+  </div>
 </section>
+<script>
+  (function () {
+    function initSlider(root) {
+      const track = root.querySelector(".slider-track");
+      const slides = Array.from(root.querySelectorAll(".slide"));
+      const prev = root.querySelector(".slider-prev");
+      const next = root.querySelector(".slider-next");
+      const dots = root.querySelector(".slider-dots");
+      let index = 0;
+      let timer = null;
+      function setActiveDot() {
+        if (!dots) return;
+        Array.from(dots.children).forEach((d, i) => {
+          d.classList.toggle("active", i === index);
+        });
+      }
+      function goTo(i) {
+        const total = slides.length;
+        index = (i + total) % total;
+        track.style.transform = "translateX(" + -index * 100 + "%)";
+        setActiveDot();
+      }
+      function buildDots() {
+        if (!dots) return;
+        dots.innerHTML = "";
+        slides.forEach((_, i) => {
+          const b = document.createElement("button");
+          b.className = "dot" + (i === 0 ? " active" : "");
+          b.setAttribute("aria-label", "Go to slide " + (i + 1));
+          b.addEventListener("click", () => {
+            stop();
+            goTo(i);
+            start();
+          });
+          dots.appendChild(b);
+        });
+      }
+      function start() {
+        stop();
+        timer = setInterval(() => goTo(index + 1), 4000);
+      }
+      function stop() {
+        if (timer) {
+          clearInterval(timer);
+          timer = null;
+        }
+      }
+      prev &&
+        prev.addEventListener("click", () => {
+          stop();
+          goTo(index - 1);
+          start();
+        });
+      next &&
+        next.addEventListener("click", () => {
+          stop();
+          goTo(index + 1);
+          start();
+        });
+      root.addEventListener("mouseenter", stop);
+      root.addEventListener("mouseleave", start);
+      buildDots();
+      goTo(0);
+      start();
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+      document
+        .querySelectorAll(".gallery-grid-section .gallery-grid")
+        .forEach((g) => (g.style.display = "none"));
+      document.querySelectorAll(".slider").forEach(initSlider);
+    });
+  })();
+</script>
 {% endblock %}
