@@ -5284,7 +5284,7 @@ body {
 /* Page Header Styles */
 .page-header {
     background: linear-gradient(135deg, #2c5f66 0%, #1a3b41 100%);
-    padding: 8rem 0 4rem;
+    padding: 12rem 0 4rem;
     text-align: center;
 }
 
