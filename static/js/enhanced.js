@@ -27,39 +27,7 @@ function init3DMouseTracking() {
 
 // Advanced Scroll Effects - DISABLED to prevent unwanted movement
 function initAdvancedScrollEffects() {
-    // Disabled automatic scroll animations to prevent unwanted movement
-    // Elements will remain static during scrolling
     return;
-    
-    /* Original code commented out:
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const element = entry.target;
-                
-                // Add entrance animation based on element type
-                if (element.classList.contains('service-card')) {
-                    element.style.animation = 'slideInFromBottom 0.8s ease-out forwards';
-                } else if (element.classList.contains('stat-card')) {
-                    element.style.animation = 'slideInFromLeft 0.8s ease-out forwards';
-                } else if (element.classList.contains('review-card')) {
-                    element.style.animation = 'slideInFromRight 0.8s ease-out forwards';
-                }
-                
-                observer.unobserve(element);
-            }
-        });
-    }, observerOptions);
-    
-    // Observe all animated elements
-    const animatedElements = document.querySelectorAll('.service-card, .stat-card, .review-card, .featured-doctor-card');
-    animatedElements.forEach(el => observer.observe(el));
-    */
 }
 
 // Enhanced Loading States
