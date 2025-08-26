@@ -16,6 +16,7 @@ endblock %} {% block content %}
       </p>
     </div>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
       .slider {
         position: relative;
@@ -31,30 +32,23 @@ endblock %} {% block content %}
         );
         backdrop-filter: blur(6px);
       }
-      .slider-viewport {
-        position: relative;
-        width: 100%;
-        
-        overflow: hidden;
-      }
-      .slider-track {
-        display: flex;
+
+      /* Custom Swiper Styles */
+      .swiper {
         width: 100%;
         height: 100%;
-        transition: transform 1200ms cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 0;
       }
-      .slide {
+
+      .swiper-slide {
         position: relative;
-        min-width: 100%;
+        width: 100%;
         height: 100%;
         opacity: 1;
         transition: opacity 600ms ease-in-out;
       }
 
-      .slide.fade-out {
-        opacity: 0.7;
-      }
-      .slide img {
+      .swiper-slide img {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -62,6 +56,12 @@ endblock %} {% block content %}
         transform: scale(1.02);
         transition: transform 1200ms cubic-bezier(0.4, 0, 0.2, 1);
       }
+
+      .swiper:hover .swiper-slide img {
+        transform: scale(1.05);
+        transition: transform 1200ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
       .slide-caption {
         position: absolute;
         left: 20px;
@@ -78,61 +78,62 @@ endblock %} {% block content %}
         font-weight: 600;
         letter-spacing: 0.2px;
       }
-      .slider:hover .slide img {
-        transform: scale(1.05);
-        transition: transform 1200ms cubic-bezier(0.4, 0, 0.2, 1);
-      }
-      .slider-arrow {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 44px;
-        height: 44px;
+
+      /* Custom Swiper Navigation */
+      .swiper-button-next,
+      .swiper-button-prev {
+        width: 44px !important;
+        height: 44px !important;
         border-radius: 50%;
-        border: 0;
-        background: rgba(255, 255, 255, 0.85);
+        background: rgba(255, 255, 255, 0.85) !important;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        z-index: 3;
         transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        color: #333 !important;
+        font-weight: bold;
       }
-      .slider-arrow:hover {
-        background: #fff;
-        transform: translateY(-50%) scale(1.08);
+
+      .swiper-button-next:hover,
+      .swiper-button-prev:hover {
+        background: #fff !important;
+        transform: scale(1.08);
         box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
       }
-      .slider-prev {
-        left: 14px;
+
+      .swiper-button-next::after,
+      .swiper-button-prev::after {
+        font-size: 18px !important;
+        font-weight: bold;
       }
-      .slider-next {
-        right: 14px;
+
+      /* Custom Swiper Pagination */
+      .swiper-pagination {
+        bottom: 12px !important;
       }
-      .slider-dots {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 12px;
-        display: flex;
-        gap: 8px;
-        justify-content: center;
-        z-index: 3;
-      }
-      .slider-dots .dot {
-        width: 9px;
-        height: 9px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.55);
-        border: 1px solid rgba(255, 255, 255, 0.7);
-        cursor: pointer;
+
+      .swiper-pagination-bullet {
+        width: 9px !important;
+        height: 9px !important;
+        background: rgba(255, 255, 255, 0.55) !important;
+        border: 1px solid rgba(255, 255, 255, 0.7) !important;
+        opacity: 1 !important;
         transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       }
-      .slider-dots .dot.active {
-        background: #fff;
+
+      .swiper-pagination-bullet-active {
+        background: #fff !important;
         transform: scale(1.25);
         box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      }
+
+      .swiper-pagination-bullet:hover {
+        background: rgba(255, 255, 255, 0.8) !important;
+        transform: scale(1.1);
+      }
+      .slider-viewport {
+        position: relative;
+        width: 100%;
+        height: 800px;
+        overflow: hidden;
       }
 
       /* Image Modal Styles */
@@ -145,7 +146,7 @@ endblock %} {% block content %}
         z-index: 10000;
         opacity: 0;
         visibility: hidden;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       }
 
       .image-modal.active {
@@ -159,52 +160,105 @@ endblock %} {% block content %}
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.95);
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.98), rgba(20, 20, 40, 0.95));
         cursor: pointer;
-        backdrop-filter: blur(5px);
+        backdrop-filter: blur(20px);
+        animation: backdropPulse 3s ease-in-out infinite;
+      }
+
+      @keyframes backdropPulse {
+        0%, 100% { background: linear-gradient(135deg, rgba(0, 0, 0, 0.98), rgba(20, 20, 40, 0.95)); }
+        50% { background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(30, 30, 60, 0.92)); }
       }
 
       .modal-content {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%) scale(0.9);
-        max-width: 95vw;
-        max-height: 95vh;
-        background: white;
-        border-radius: 12px;
+        transform: translate(-50%, -50%) scale(0.7) rotateY(15deg);
+        max-width: 92vw;
+        max-height: 92vh;
+        background: linear-gradient(145deg, #ffffff, #f8f9fa);
+        border-radius: 20px;
         overflow: hidden;
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 
+          0 30px 80px rgba(0, 0, 0, 0.6),
+          0 0 0 1px rgba(255, 255, 255, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        border: 1px solid rgba(255, 255, 255, 0.2);
       }
 
       .image-modal.active .modal-content {
-        transform: translate(-50%, -50%) scale(1);
+        transform: translate(-50%, -50%) scale(1) rotateY(0deg);
+      }
+
+      .modal-content::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+        background-size: 300% 100%;
+        animation: gradientShift 3s ease infinite;
+        z-index: 1;
+      }
+
+      @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
       }
 
       .modal-close {
         position: absolute;
-        top: 15px;
-        right: 20px;
-        background: rgba(0, 0, 0, 0.8);
+        top: 20px;
+        right: 25px;
+        background: linear-gradient(135deg, #ff6b6b, #ee5a52);
         color: white;
         border: none;
-        font-size: 28px;
-        width: 45px;
-        height: 45px;
+        font-size: 24px;
+        width: 50px;
+        height: 50px;
         border-radius: 50%;
         cursor: pointer;
         z-index: 10001;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all 0.2s ease;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         font-weight: bold;
+        box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
       }
 
       .modal-close:hover {
-        background: rgba(0, 0, 0, 1);
-        transform: scale(1.1);
+        background: linear-gradient(135deg, #ff5252, #d32f2f);
+        transform: scale(1.15) rotate(90deg);
+        box-shadow: 0 12px 35px rgba(255, 107, 107, 0.6);
+      }
+
+      .modal-close::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(45deg, #ff6b6b, #ee5a52, #ff6b6b);
+        border-radius: 50%;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        background-size: 200% 200%;
+        animation: gradientShift 2s ease infinite;
+      }
+
+      .modal-close:hover::before {
+        opacity: 1;
       }
 
       .modal-prev,
@@ -212,27 +266,56 @@ endblock %} {% block content %}
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
         border-radius: 50%;
         border: none;
-        background: rgba(255, 255, 255, 0.9);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
         color: #333;
-        font-size: 20px;
+        font-size: 24px;
         cursor: pointer;
         z-index: 10001;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        box-shadow: 
+          0 10px 30px rgba(0, 0, 0, 0.3),
+          0 0 0 1px rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(15px);
+        font-weight: bold;
       }
 
       .modal-prev:hover,
       .modal-next:hover {
-        background: rgba(255, 255, 255, 1);
-        transform: translateY(-50%) scale(1.1);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        background: linear-gradient(135deg, #ffffff, #f8f9fa);
+        transform: translateY(-50%) scale(1.2);
+        box-shadow: 
+          0 15px 40px rgba(0, 0, 0, 0.4),
+          0 0 0 2px rgba(255, 255, 255, 0.3);
+        color: #667eea;
+      }
+
+      .modal-prev::before,
+      .modal-next::before {
+        content: '';
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        right: -3px;
+        bottom: -3px;
+        background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
+        border-radius: 50%;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        background-size: 200% 200%;
+        animation: gradientShift 2s ease infinite;
+      }
+
+      .modal-prev:hover::before,
+      .modal-next:hover::before {
+        opacity: 1;
       }
 
       .modal-prev {
@@ -266,24 +349,187 @@ endblock %} {% block content %}
         max-height: 85vh;
         object-fit: contain;
         display: block;
+        transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        filter: brightness(1.05) contrast(1.1);
+      }
+
+      .modal-image:hover {
+        filter: brightness(1.1) contrast(1.15);
+        transform: scale(1.02);
       }
 
       .modal-caption {
-        padding: 20px 25px;
-        background: white;
-        font-size: 18px;
-        color: #333;
-        text-align: center;
-        border-top: 1px solid #eee;
-        font-weight: 500;
+        padding: 25px 30px;
+        background: linear-gradient(135deg, #f8f9fa, #ffffff);
+        font-size: 20px;
+        color: #2c3e50;
+        text-align: left;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .modal-caption::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+        transition: left 0.6s ease;
+      }
+
+      .modal-caption:hover::before {
+        left: 100%;
+      }
+
+      /* Image transition effects */
+      .modal-image.fade-in {
+        animation: imageFadeIn 0.6s ease-out;
+      }
+
+      @keyframes imageFadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95) translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+
+      /* Progress indicator for auto-slide */
+      .modal-progress {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #667eea, #764ba2);
+        transition: width 0.1s linear;
+        z-index: 10002;
+      }
+
+      /* Dynamic Pagination Styles */
+      .modal-pagination {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+        z-index: 10003;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 12px 16px;
+        border-radius: 25px;
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        display: none;
+      }
+
+      .pagination-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.4);
+        border: 2px solid rgba(255, 255, 255, 0.6);
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .pagination-dot::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
+        border-radius: 50%;
+        transform: scale(0);
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      .pagination-dot.active {
+        background: transparent;
+        border-color: rgba(255, 255, 255, 0.9);
+        transform: scale(1.2);
+        box-shadow: 0 0 15px rgba(102, 126, 234, 0.6);
+      }
+
+      .pagination-dot.active::before {
+        transform: scale(1);
+      }
+
+      .pagination-dot:hover {
+        transform: scale(1.1);
+        background: rgba(255, 255, 255, 0.6);
+      }
+
+      .pagination-dot:hover::before {
+        transform: scale(0.8);
+      }
+
+      /* Image counter */
+      .image-counter {
+        position: absolute;
+        top: 20px;
+        left: 25px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+        color: #2c3e50;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        z-index: 10001;
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .image-counter:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      @media (max-width: 768px) {
+        .modal-pagination {
+          bottom: 15px;
+          padding: 10px 12px;
+          gap: 6px;
+        }
+        
+        .pagination-dot {
+          width: 10px;
+          height: 10px;
+        }
+        
+        .image-counter {
+          top: 15px;
+          left: 15px;
+          padding: 6px 12px;
+          font-size: 12px;
+        }
       }
       @media (max-width: 768px) {
         .slider-viewport {
-          height: 320px;
+          height: 450px;
         }
-        .slider-arrow {
-          width: 38px;
-          height: 38px;
+        .swiper-button-next,
+        .swiper-button-prev {
+          width: 38px !important;
+          height: 38px !important;
+        }
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+          font-size: 16px !important;
         }
         .slide-caption {
           font-size: 0.9rem;
@@ -466,218 +712,291 @@ endblock %} {% block content %}
     </div>
   </div>
 </section>
-<script>
-  (function () {
-    function initSlider(root) {
-      const track = root.querySelector(".slider-track");
-      const slides = Array.from(root.querySelectorAll(".slide"));
-      const prev = root.querySelector(".slider-prev");
-      const next = root.querySelector(".slider-next");
-      const dots = root.querySelector(".slider-dots");
-      let index = 0;
-      let timer = null;
-      function setActiveDot() {
-        if (!dots) return;
-        Array.from(dots.children).forEach((d, i) => {
-          d.classList.toggle("active", i === index);
-        });
-      }
-      function goTo(i) {
-        const total = slides.length;
-        index = (i + total) % total;
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      (function () {
+        // Modal functionality for image viewing
+        function openImageModal(src, alt, currentSlider) {
+          const modal = document.createElement("div");
+          modal.className = "image-modal";
+          
+          // Get all images from the current slider - check both old and new structure
+          let sliderImages = Array.from(currentSlider.querySelectorAll('.swiper-slide img'));
+          if (sliderImages.length === 0) {
+            sliderImages = Array.from(currentSlider.querySelectorAll('.slide img'));
+          }
+          const currentIndex = sliderImages.findIndex(img => img.src === src);
+          
+          modal.innerHTML = `
+             <div class="modal-backdrop"></div>
+             <div class="modal-content">
+               <button class="modal-close">&times;</button>
+               <button class="modal-prev" aria-label="Previous image">&#10094;</button>
+               <button class="modal-next" aria-label="Next image">&#10095;</button>
+               <div class="image-counter">1 / ${sliderImages.length}</div>
+               <img src="${src}" alt="${alt}" class="modal-image fade-in">
+               <div class="modal-caption">${alt}</div>
+               <div class="modal-progress"></div>
+               <div class="modal-pagination"></div>
+             </div>
+           `;
 
-        // Add smooth transition class
-        track.style.transition =
-          "transform 1500ms cubic-bezier(0.25, 0.1, 0.25, 1)";
-        track.style.transform = "translateX(" + -index * 100 + "%)";
-
-        // Remove transition class after animation completes
-        setTimeout(() => {
-          track.style.transition = "";
-        }, 1500);
-
-        setActiveDot();
-      }
-      function buildDots() {
-        if (!dots) return;
-        dots.innerHTML = "";
-        slides.forEach((_, i) => {
-          const b = document.createElement("button");
-          b.className = "dot" + (i === 0 ? " active" : "");
-          b.setAttribute("aria-label", "Go to slide " + (i + 1));
-          b.addEventListener("click", () => {
-            stop();
-            goTo(i);
-            start();
-          });
-          dots.appendChild(b);
-        });
-      }
-      function start() {
-        stop();
-        timer = setInterval(() => goTo(index + 1), 8000);
-      }
-      function stop() {
-        if (timer) {
-          clearInterval(timer);
-          timer = null;
-        }
-      }
-      prev &&
-        prev.addEventListener("click", () => {
-          stop();
-          goTo(index - 1);
-          start();
-        });
-      next &&
-        next.addEventListener("click", () => {
-          stop();
-          goTo(index + 1);
-          start();
-        });
-      // Add click functionality to slides for viewing
-      slides.forEach((slide, i) => {
-        const img = slide.querySelector("img");
-        if (img) {
-          img.style.cursor = "pointer";
-          img.addEventListener("click", function (e) {
-            e.stopPropagation();
-            openImageModal(this.src, this.alt, root);
-          });
-        }
-      });
-
-      root.addEventListener("mouseenter", stop);
-      root.addEventListener("mouseleave", start);
-      buildDots();
-      goTo(0);
-      start();
-    }
-    document.addEventListener("DOMContentLoaded", function () {
-      document
-        .querySelectorAll(".gallery-grid-section .gallery-grid")
-        .forEach((g) => (g.style.display = "none"));
-      document.querySelectorAll(".slider").forEach(initSlider);
-    });
-
-    // Modal functionality for image viewing
-    function openImageModal(src, alt, currentSlider) {
-      const modal = document.createElement("div");
-      modal.className = "image-modal";
-      
-      // Get all images from the current slider
-      const sliderImages = Array.from(currentSlider.querySelectorAll('.slide img'));
-      const currentIndex = sliderImages.findIndex(img => img.src === src);
-      
-      modal.innerHTML = `
-         <div class="modal-backdrop"></div>
-         <div class="modal-content">
-           <button class="modal-close">&times;</button>
-           <button class="modal-prev" aria-label="Previous image">&#10094;</button>
-           <button class="modal-next" aria-label="Next image">&#10095;</button>
-           <img src="${src}" alt="${alt}" class="modal-image">
-           <div class="modal-caption">${alt}</div>
-         </div>
-       `;
-
-      // Add event listeners
-      const backdrop = modal.querySelector(".modal-backdrop");
-      const closeBtn = modal.querySelector(".modal-close");
-      const prevBtn = modal.querySelector(".modal-prev");
-      const nextBtn = modal.querySelector(".modal-next");
-      const modalImage = modal.querySelector(".modal-image");
-      const modalCaption = modal.querySelector(".modal-caption");
-
-      let currentImageIndex = currentIndex;
-      let autoSlideTimer = null;
-
-      function showImage(index) {
-        const image = sliderImages[index];
-        modalImage.src = image.src;
-        modalImage.alt = image.alt;
-        modalCaption.textContent = image.alt;
-        currentImageIndex = index;
-      }
-
-      function nextImage() {
-        const nextIndex = (currentImageIndex + 1) % sliderImages.length;
-        showImage(nextIndex);
-        resetAutoSlide();
-      }
-
-      function prevImage() {
-        const prevIndex = (currentImageIndex - 1 + sliderImages.length) % sliderImages.length;
-        showImage(prevIndex);
-        resetAutoSlide();
-      }
-
-      function startAutoSlide() {
-        autoSlideTimer = setInterval(nextImage, 4000); // Auto-slide every 4 seconds
-      }
-
-      function resetAutoSlide() {
-        if (autoSlideTimer) {
-          clearInterval(autoSlideTimer);
-        }
-        startAutoSlide();
-      }
-
-      function stopAutoSlide() {
-        if (autoSlideTimer) {
-          clearInterval(autoSlideTimer);
-          autoSlideTimer = null;
-        }
-      }
-
-      backdrop.addEventListener("click", () => closeImageModal(modal));
-      closeBtn.addEventListener("click", () => closeImageModal(modal));
-      prevBtn.addEventListener("click", prevImage);
-      nextBtn.addEventListener("click", nextImage);
-
-      // Keyboard navigation
-      document.addEventListener("keydown", handleKeyPress);
-
-      function handleKeyPress(e) {
-        if (e.key === "ArrowLeft") {
-          prevImage();
-        } else if (e.key === "ArrowRight") {
-          nextImage();
-        } else if (e.key === "Escape") {
-          closeImageModal(modal);
-        }
-      }
-
-      document.body.appendChild(modal);
-      setTimeout(() => modal.classList.add("active"), 10);
-      
-      // Start auto-sliding
-      startAutoSlide();
-
-      // Pause auto-slide on hover
-      modal.addEventListener("mouseenter", stopAutoSlide);
-      modal.addEventListener("mouseleave", startAutoSlide);
-    }
-
-    function closeImageModal(modal) {
-      modal.classList.remove("active");
-      
-      setTimeout(() => {
-        if (modal.parentNode) {
-          modal.parentNode.removeChild(modal);
-        }
-      }, 300);
-    }
-
-    // Close modal on escape key
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        const modal = document.querySelector(".image-modal.active");
-        if (modal) {
+          // Add event listeners
+          const backdrop = modal.querySelector(".modal-backdrop");
           const closeBtn = modal.querySelector(".modal-close");
-          if (closeBtn) closeBtn.click();
+          const prevBtn = modal.querySelector(".modal-prev");
+          const nextBtn = modal.querySelector(".modal-next");
+          const modalImage = modal.querySelector(".modal-image");
+          const modalCaption = modal.querySelector(".modal-caption");
+          const modalProgress = modal.querySelector(".modal-progress");
+          const modalPagination = modal.querySelector(".modal-pagination");
+          const imageCounter = modal.querySelector(".image-counter");
+
+          let currentImageIndex = currentIndex;
+          let autoSlideTimer = null;
+          let progressTimer = null;
+
+          function showImage(index) {
+            const image = sliderImages[index];
+            
+            // Add fade out effect
+            modalImage.style.opacity = '0';
+            modalImage.style.transform = 'scale(0.95) translateY(10px)';
+            
+            setTimeout(() => {
+              modalImage.src = image.src;
+              modalImage.alt = image.alt;
+              modalCaption.textContent = image.alt;
+              currentImageIndex = index;
+              
+              // Update counter
+              imageCounter.textContent = `${index + 1} / ${sliderImages.length}`;
+              
+              // Update pagination
+              updatePagination(index);
+              
+              // Add fade in effect
+              modalImage.style.opacity = '1';
+              modalImage.style.transform = 'scale(1) translateY(0)';
+              modalImage.classList.add('fade-in');
+              
+              setTimeout(() => {
+                modalImage.classList.remove('fade-in');
+              }, 600);
+            }, 200);
+          }
+
+          function nextImage() {
+            const nextIndex = (currentImageIndex + 1) % sliderImages.length;
+            goToImage(nextIndex);
+            resetAutoSlide();
+          }
+
+          function prevImage() {
+            const prevIndex = (currentImageIndex - 1 + sliderImages.length) % sliderImages.length;
+            goToImage(prevIndex);
+            resetAutoSlide();
+          }
+
+          function startAutoSlide() {
+            autoSlideTimer = setInterval(nextImage, 4000); // Auto-slide every 4 seconds
+            startProgress();
+          }
+
+          function resetAutoSlide() {
+            if (autoSlideTimer) {
+              clearInterval(autoSlideTimer);
+            }
+            if (progressTimer) {
+              clearInterval(progressTimer);
+            }
+            startAutoSlide();
+          }
+
+          function stopAutoSlide() {
+            if (autoSlideTimer) {
+              clearInterval(autoSlideTimer);
+              autoSlideTimer = null;
+            }
+            if (progressTimer) {
+              clearInterval(progressTimer);
+              progressTimer = null;
+            }
+            modalProgress.style.width = '0%';
+          }
+
+          function startProgress() {
+            modalProgress.style.width = '0%';
+            let progress = 0;
+            progressTimer = setInterval(() => {
+              progress += 1;
+              modalProgress.style.width = progress + '%';
+              if (progress >= 100) {
+                clearInterval(progressTimer);
+              }
+            }, 40); // 4000ms / 100 = 40ms per 1%
+          }
+
+          function createPagination() {
+            modalPagination.innerHTML = '';
+            sliderImages.forEach((_, index) => {
+              const dot = document.createElement('div');
+              dot.className = `pagination-dot ${index === currentImageIndex ? 'active' : ''}`;
+              dot.setAttribute('aria-label', `Go to image ${index + 1}`);
+              dot.addEventListener('click', () => {
+                stopAutoSlide();
+                goToImage(index);
+                startAutoSlide();
+              });
+              modalPagination.appendChild(dot);
+            });
+          }
+
+          function updatePagination(activeIndex) {
+            const dots = modalPagination.querySelectorAll('.pagination-dot');
+            dots.forEach((dot, index) => {
+              dot.classList.toggle('active', index === activeIndex);
+            });
+          }
+
+          function goToImage(index) {
+            if (index >= 0 && index < sliderImages.length) {
+              showImage(index);
+            }
+          }
+
+          backdrop.addEventListener("click", () => closeImageModal(modal));
+          closeBtn.addEventListener("click", () => closeImageModal(modal));
+          prevBtn.addEventListener("click", prevImage);
+          nextBtn.addEventListener("click", nextImage);
+
+          // Keyboard navigation
+          document.addEventListener("keydown", handleKeyPress);
+
+          function handleKeyPress(e) {
+            if (e.key === "ArrowLeft") {
+              prevImage();
+            } else if (e.key === "ArrowRight") {
+              nextImage();
+            } else if (e.key === "Escape") {
+              closeImageModal(modal);
+            }
+          }
+
+          document.body.appendChild(modal);
+          setTimeout(() => modal.classList.add("active"), 10);
+          
+          // Initialize pagination
+          createPagination();
+          
+          // Start auto-sliding
+          startAutoSlide();
+
+          // Pause auto-slide on hover
+          modal.addEventListener("mouseenter", stopAutoSlide);
+          modal.addEventListener("mouseleave", startAutoSlide);
+
+          // Add image loading animation
+          modalImage.addEventListener('load', function() {
+            this.style.opacity = '1';
+            this.style.transform = 'scale(1) translateY(0)';
+          });
         }
-      }
-    });
-  })();
-</script>
+
+        function closeImageModal(modal) {
+          modal.classList.remove("active");
+          
+          setTimeout(() => {
+            if (modal.parentNode) {
+              modal.parentNode.removeChild(modal);
+            }
+          }, 300);
+        }
+
+        function initSwiperSlider(root) {
+          // Convert existing slider structure to Swiper
+          const sliderViewport = root.querySelector(".slider-viewport");
+          const slides = Array.from(root.querySelectorAll(".slide"));
+          
+          // Create Swiper container
+          const swiperContainer = document.createElement("div");
+          swiperContainer.className = "swiper";
+          swiperContainer.innerHTML = `
+            <div class="swiper-wrapper"></div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          `;
+          
+          // Move slides to Swiper wrapper
+          const swiperWrapper = swiperContainer.querySelector(".swiper-wrapper");
+          slides.forEach(slide => {
+            const swiperSlide = document.createElement("div");
+            swiperSlide.className = "swiper-slide";
+            swiperSlide.innerHTML = slide.innerHTML;
+            swiperWrapper.appendChild(swiperSlide);
+          });
+          
+          // Replace existing slider content with Swiper
+          sliderViewport.innerHTML = "";
+          sliderViewport.appendChild(swiperContainer);
+          
+          // Initialize Swiper
+          const swiper = new Swiper(swiperContainer, {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+            autoplay: {
+              delay: 8000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            },
+            pagination: {
+              el: swiperContainer.querySelector('.swiper-pagination'),
+              clickable: true,
+              dynamicBullets: true,
+              dynamicMainBullets: 3,
+            },
+            navigation: {
+              nextEl: swiperContainer.querySelector('.swiper-button-next'),
+              prevEl: swiperContainer.querySelector('.swiper-button-prev'),
+            },
+            effect: 'fade',
+            fadeEffect: {
+              crossFade: true
+            },
+            speed: 1500,
+            grabCursor: true,
+            keyboard: {
+              enabled: true,
+            },
+            mousewheel: {
+              enabled: true,
+            },
+            on: {
+              init: function() {
+                // Add click functionality to slides for viewing
+                const swiperSlides = swiperContainer.querySelectorAll('.swiper-slide img');
+                swiperSlides.forEach((img) => {
+                  img.style.cursor = "pointer";
+                  img.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    openImageModal(this.src, this.alt, root);
+                  });
+                });
+              }
+            }
+          });
+          
+          return swiper;
+        }
+        
+        document.addEventListener("DOMContentLoaded", function () {
+          document
+            .querySelectorAll(".gallery-grid-section .gallery-grid")
+            .forEach((g) => (g.style.display = "none"));
+          document.querySelectorAll(".slider").forEach(initSwiperSlider);
+        });
+      })();
+    </script>
 {% endblock %}
