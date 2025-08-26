@@ -207,6 +207,59 @@ endblock %} {% block content %}
         transform: scale(1.1);
       }
 
+      .modal-prev,
+      .modal-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(255, 255, 255, 0.9);
+        color: #333;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 10001;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .modal-prev:hover,
+      .modal-next:hover {
+        background: rgba(255, 255, 255, 1);
+        transform: translateY(-50%) scale(1.1);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .modal-prev {
+        left: 20px;
+      }
+
+      .modal-next {
+        right: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .modal-prev,
+        .modal-next {
+          width: 40px;
+          height: 40px;
+          font-size: 16px;
+        }
+        
+        .modal-prev {
+          left: 10px;
+        }
+        
+        .modal-next {
+          right: 10px;
+        }
+      }
+
       .modal-image {
         width: 100%;
         height: auto;
@@ -293,6 +346,20 @@ endblock %} {% block content %}
             <div class="slide">
               <img
                 src="{{ url_for('static', filename='images/images/doctors-patient7.jpeg') }}"
+                alt="Patient Care"
+              />
+              <div class="slide-caption">Personalized Care</div>
+            </div>
+            <div class="slide">
+              <img
+                src="{{ url_for('static', filename='images/images/doctors-patient8.jpeg') }}"
+                alt="Patient Care"
+              />
+              <div class="slide-caption">Personalized Care</div>
+            </div>
+            <div class="slide">
+              <img
+                src="{{ url_for('static', filename='images/images/doctors-patient9.jpeg') }}"
                 alt="Patient Care"
               />
               <div class="slide-caption">Personalized Care</div>
@@ -475,7 +542,7 @@ endblock %} {% block content %}
           img.style.cursor = "pointer";
           img.addEventListener("click", function (e) {
             e.stopPropagation();
-            openImageModal(this.src, this.alt);
+            openImageModal(this.src, this.alt, root);
           });
         }
       });
@@ -494,13 +561,20 @@ endblock %} {% block content %}
     });
 
     // Modal functionality for image viewing
-    function openImageModal(src, alt) {
+    function openImageModal(src, alt, currentSlider) {
       const modal = document.createElement("div");
       modal.className = "image-modal";
+      
+      // Get all images from the current slider
+      const sliderImages = Array.from(currentSlider.querySelectorAll('.slide img'));
+      const currentIndex = sliderImages.findIndex(img => img.src === src);
+      
       modal.innerHTML = `
          <div class="modal-backdrop"></div>
          <div class="modal-content">
            <button class="modal-close">&times;</button>
+           <button class="modal-prev" aria-label="Previous image">&#10094;</button>
+           <button class="modal-next" aria-label="Next image">&#10095;</button>
            <img src="${src}" alt="${alt}" class="modal-image">
            <div class="modal-caption">${alt}</div>
          </div>
@@ -509,16 +583,84 @@ endblock %} {% block content %}
       // Add event listeners
       const backdrop = modal.querySelector(".modal-backdrop");
       const closeBtn = modal.querySelector(".modal-close");
+      const prevBtn = modal.querySelector(".modal-prev");
+      const nextBtn = modal.querySelector(".modal-next");
+      const modalImage = modal.querySelector(".modal-image");
+      const modalCaption = modal.querySelector(".modal-caption");
+
+      let currentImageIndex = currentIndex;
+      let autoSlideTimer = null;
+
+      function showImage(index) {
+        const image = sliderImages[index];
+        modalImage.src = image.src;
+        modalImage.alt = image.alt;
+        modalCaption.textContent = image.alt;
+        currentImageIndex = index;
+      }
+
+      function nextImage() {
+        const nextIndex = (currentImageIndex + 1) % sliderImages.length;
+        showImage(nextIndex);
+        resetAutoSlide();
+      }
+
+      function prevImage() {
+        const prevIndex = (currentImageIndex - 1 + sliderImages.length) % sliderImages.length;
+        showImage(prevIndex);
+        resetAutoSlide();
+      }
+
+      function startAutoSlide() {
+        autoSlideTimer = setInterval(nextImage, 4000); // Auto-slide every 4 seconds
+      }
+
+      function resetAutoSlide() {
+        if (autoSlideTimer) {
+          clearInterval(autoSlideTimer);
+        }
+        startAutoSlide();
+      }
+
+      function stopAutoSlide() {
+        if (autoSlideTimer) {
+          clearInterval(autoSlideTimer);
+          autoSlideTimer = null;
+        }
+      }
 
       backdrop.addEventListener("click", () => closeImageModal(modal));
       closeBtn.addEventListener("click", () => closeImageModal(modal));
+      prevBtn.addEventListener("click", prevImage);
+      nextBtn.addEventListener("click", nextImage);
+
+      // Keyboard navigation
+      document.addEventListener("keydown", handleKeyPress);
+
+      function handleKeyPress(e) {
+        if (e.key === "ArrowLeft") {
+          prevImage();
+        } else if (e.key === "ArrowRight") {
+          nextImage();
+        } else if (e.key === "Escape") {
+          closeImageModal(modal);
+        }
+      }
 
       document.body.appendChild(modal);
       setTimeout(() => modal.classList.add("active"), 10);
+      
+      // Start auto-sliding
+      startAutoSlide();
+
+      // Pause auto-slide on hover
+      modal.addEventListener("mouseenter", stopAutoSlide);
+      modal.addEventListener("mouseleave", startAutoSlide);
     }
 
     function closeImageModal(modal) {
       modal.classList.remove("active");
+      
       setTimeout(() => {
         if (modal.parentNode) {
           modal.parentNode.removeChild(modal);
@@ -530,7 +672,10 @@ endblock %} {% block content %}
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         const modal = document.querySelector(".image-modal.active");
-        if (modal) closeImageModal(modal);
+        if (modal) {
+          const closeBtn = modal.querySelector(".modal-close");
+          if (closeBtn) closeBtn.click();
+        }
       }
     });
   })();
