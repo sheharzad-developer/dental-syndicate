@@ -3129,9 +3129,15 @@ body {
     width: 100%;
     height: 100%;
     background-image: 
-        radial-gradient(circle at 25% 30%, rgba(31, 216, 216, 0.04) 0%, transparent 50%),
-        radial-gradient(circle at 75% 70%, rgba(31, 216, 216, 0.03) 0%, transparent 50%);
+        radial-gradient(circle at 25% 30%, rgba(31, 216, 216, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 75% 70%, rgba(31, 216, 216, 0.10) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(31, 216, 216, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 60% 40%, rgba(31, 216, 216, 0.04) 0%, transparent 50%);
     animation: patternFloat 22s ease-in-out infinite;
+    z-index: 1;
+    opacity: 1;
 }
 
 .services-overview-container {
@@ -12119,6 +12125,48 @@ input:focus, textarea:focus, select:focus {
     50% {
         transform: scale(1.1);
     }
+}
+
+/* Particles Background Styles */
+.excellence-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(1px 1px at 40px 60px, rgba(31, 216, 216, 0.08), transparent),
+        radial-gradient(1px 1px at 90px 50px, rgba(255, 215, 0, 0.06), transparent),
+        radial-gradient(1px 1px at 130px 100px, rgba(31, 216, 216, 0.05), transparent),
+        radial-gradient(1px 1px at 160px 40px, rgba(255, 215, 0, 0.04), transparent);
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    animation: particleFloat 35s linear infinite;
+}
+
+.services-overview-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(1px 1px at 30px 40px, rgba(31, 216, 216, 0.06), transparent),
+        radial-gradient(1px 1px at 70px 80px, rgba(255, 215, 0, 0.05), transparent),
+        radial-gradient(1px 1px at 110px 120px, rgba(31, 216, 216, 0.04), transparent),
+        radial-gradient(1px 1px at 150px 160px, rgba(255, 215, 0, 0.03), transparent);
+    background-repeat: repeat;
+    background-size: 160px 160px;
+    animation: particleFloat 40s linear infinite;
+}
+
+.showcase-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(1px 1px at 50px 70px, rgba(31, 216, 216, 0.07), transparent),
+        radial-gradient(1px 1px at 100px 90px, rgba(255, 215, 0, 0.05), transparent),
+        radial-gradient(1px 1px at 140px 110px, rgba(31, 216, 216, 0.04), transparent);
+    background-repeat: repeat;
+    background-size: 170px 170px;
+    animation: particleFloat 30s linear infinite;
 }
 
 /* Responsive Emergency Section */
