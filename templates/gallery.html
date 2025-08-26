@@ -520,7 +520,7 @@ endblock %} {% block content %}
       }
       @media (max-width: 768px) {
         .slider-viewport {
-          height: 450px;
+          height: 600px;
         }
         .swiper-button-next,
         .swiper-button-prev {
@@ -535,6 +535,55 @@ endblock %} {% block content %}
           font-size: 0.9rem;
           left: 12px;
           right: 12px;
+        }
+        
+        /* Make modal content larger on mobile */
+        .modal-content {
+          max-width: 95vw;
+          max-height: 95vh;
+          width: 95vw;
+          height: auto;
+          border-radius: 12px;
+          
+        }
+        
+        .modal-image {
+          max-height: 75vh;
+          width: 100%;
+          object-fit: contain;
+        }
+        
+        .modal-caption {
+          padding: 15px 20px;
+          font-size: 16px;
+        }
+        
+        .modal-close {
+          top: 15px;
+          right: 15px;
+          width: 40px;
+          height: 40px;
+          font-size: 20px;
+        }
+        
+        .modal-prev,
+        .modal-next {
+          width: 45px;
+          height: 45px;
+          font-size: 18px;
+        }
+        
+        .modal-prev {
+          left: 10px;
+        }
+        
+        .modal-next {
+          right: 10px;
+        }
+        
+        .modal-caption {
+          padding: 20px 25px;
+          font-size: 18px;
         }
       }
     </style>
