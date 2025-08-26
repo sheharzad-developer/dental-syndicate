@@ -12149,6 +12149,30 @@ input:focus, textarea:focus, select:focus {
         max-width: 250px;
         justify-content: center;
     }
+    
+    /* Center service features on mobile */
+    .service-features {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .feature-item {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    /* Consistent card-content typography on mobile */
+    .card-content h3 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-bottom: 1.2rem;
+    }
+    
+    .card-content p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
 }
 
 @media (max-width: 480px) {
