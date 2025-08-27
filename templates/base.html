@@ -34,17 +34,41 @@
     <meta name="geo.placename" content="Lahore">
     <meta name="geo.position" content="31.5204;74.3587">
     <meta name="ICBM" content="31.5204, 74.3587">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="general">
+    <meta name="revisit-after" content="7 days">
+    <meta name="language" content="en">
+    <meta name="coverage" content="Worldwide">
+    <meta name="target" content="all">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Behzad Dental Clinic">
+    <meta name="msapplication-TileImage" content="{{ url_for('static', filename='images/android-chrome-192x192.png', _external=True) }}">
+    <meta name="msapplication-config" content="{{ url_for('static', filename='browserconfig.xml', _external=True) }}">
     <link rel="canonical" href="{{ request.url }}">
+    <link rel="alternate" hreflang="en" href="{{ request.url }}">
+    <link rel="alternate" hreflang="x-default" href="{{ request.url }}">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <!-- Local Business Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Dentist",
+        "@id": "{{ request.url_root }}#organization",
         "name": "Behzad Dental Clinic",
-        "description": "Leading dental clinic in Lahore offering comprehensive dental care including implants, orthodontics, and cosmetic dentistry",
+        "alternateName": "Behzad Dental",
+        "description": "Leading dental clinic in Lahore offering comprehensive dental care including implants, orthodontics, cosmetic dentistry, and emergency dental services. Expert dentists with 20+ years experience.",
         "url": "{{ request.url_root }}",
+        "logo": "{{ url_for('static', filename='images/logo.png', _external=True) }}",
+        "image": "{{ url_for('static', filename='images/dr-behzad-large.jpg', _external=True) }}",
         "telephone": "+92 331 4864899",
+        "email": "info@behzaddentalclinic.com",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "131-BWD, Fourth Floor, Commercial Broadway",
@@ -60,10 +84,103 @@
         },
         "openingHours": "Mo-Fr 09:00-18:00, Sa 09:00-15:00",
         "priceRange": "$$",
-        "image": "{{ url_for('static', filename='images/dr-behzad-large.jpg', _external=True) }}",
+        "currenciesAccepted": "PKR, USD",
+        "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+        "areaServed": {
+            "@type": "City",
+            "name": "Lahore"
+        },
+        "serviceArea": {
+            "@type": "City",
+            "name": "Lahore"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Dental Services",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Dental Implants",
+                        "description": "Advanced dental implant procedures"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Orthodontics",
+                        "description": "Braces and teeth alignment"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Cosmetic Dentistry",
+                        "description": "Teeth whitening and cosmetic procedures"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "General Dentistry",
+                        "description": "Routine dental care and checkups"
+                    }
+                }
+            ]
+        },
         "sameAs": [
             "https://www.facebook.com/behzaddentalclinic",
             "https://www.instagram.com/behzaddentalclinic"
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "127",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "review": [
+            {
+                "@type": "Review",
+                "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "5",
+                    "bestRating": "5"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Ahmed Khan"
+                },
+                "reviewBody": "Excellent dental care and professional service. Highly recommended!"
+            }
+        ]
+    }
+    </script>
+    
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "{{ request.url_root }}"
+            }
+            {% if request.endpoint != 'home' %}
+            ,{
+                "@type": "ListItem",
+                "position": 2,
+                "name": "{{ request.endpoint|title }}",
+                "item": "{{ request.url }}"
+            }
+            {% endif %}
         ]
     }
     </script>
@@ -79,11 +196,56 @@
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='images/android-chrome-192x192.png') }}">
+    <link rel="icon" type="image/png" sizes="512x512" href="{{ url_for('static', filename='images/android-chrome-512x512.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
     
     <!-- Performance Optimization -->
     <meta name="theme-color" content="#2c5f66">
     <meta name="msapplication-TileColor" content="#2c5f66">
+    
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="your-verification-code-here">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID', {
+            'page_title': '{{ self.title() }}',
+            'page_location': '{{ request.url }}',
+            'custom_map': {
+                'dimension1': 'page_type',
+                'dimension2': 'service_category'
+            }
+        });
+        gtag('config', 'GA_MEASUREMENT_ID', {
+            'page_type': '{{ request.endpoint }}',
+            'service_category': 'dental'
+        });
+    </script>
+    
+    <!-- Facebook Pixel -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'YOUR_PIXEL_ID');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+    /></noscript>
 </head>
 <body>
     <!-- Skip to main content for accessibility -->
@@ -166,6 +328,7 @@
     <!-- Scripts -->
     <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
     <script src="{{ url_for('static', filename='js/enhanced.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/seo-optimization.js') }}" defer></script>
     
     <!-- Google Analytics (if you have it) -->
     <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script> -->

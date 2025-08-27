@@ -1,4 +1,10 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
+
+{% block title %}Behzad Dental Clinic - Best Dentist in Lahore | Dental Implants, Orthodontics, Cosmetic Dentistry{% endblock %}
+{% block meta_description %}Leading dental clinic in Lahore offering dental implants, orthodontics, cosmetic dentistry, and comprehensive oral care. Expert dentists with 20+ years experience. Book appointment today.{% endblock %}
+{% block meta_keywords %}best dentist Lahore, dental implants Lahore, orthodontics Lahore, cosmetic dentistry Lahore, dental clinic Lahore, teeth whitening, dental checkup, emergency dentist Lahore{% endblock %}
+
+{% block content %}
 <!-- Hero Section - Revolutionary Design -->
 <section class="hero">
   <div class="hero-background">
@@ -1116,6 +1122,104 @@
       if (modal) closeImageModal(modal);
     }
   });
+</script>
+
+<!-- SEO Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What dental services does Behzad Dental Clinic offer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Behzad Dental Clinic offers comprehensive dental services including dental implants, orthodontics, cosmetic dentistry, general dentistry, teeth whitening, dental checkups, emergency dental care, and more."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much do dental implants cost in Lahore?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dental implant costs in Lahore vary based on the number of implants and complexity. Contact us for a personalized consultation and pricing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer emergency dental services?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we provide emergency dental services for urgent dental issues. Contact us immediately for emergency appointments."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are your clinic hours?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We are open Monday to Friday 9:00 AM - 6:00 PM and Saturday 9:00 AM - 3:00 PM. Closed on Sundays."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you accept insurance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We accept various payment methods including cash, credit cards, and bank transfers. Contact us to discuss insurance options."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalProcedure",
+  "name": "Dental Implants",
+  "description": "Advanced dental implant procedures using the latest technology and techniques",
+  "bodyLocation": "Mouth",
+  "preparation": "Initial consultation, X-rays, treatment planning",
+  "procedureType": "Surgical",
+  "howPerformed": "Titanium implants are surgically placed in the jawbone to replace missing teeth",
+  "followup": "Regular checkups and maintenance appointments",
+  "risks": "Standard surgical risks, infection, implant failure",
+  "expectedPrognosis": "High success rate with proper care and maintenance"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalProcedure",
+  "name": "Orthodontics",
+  "description": "Teeth alignment and correction using braces and other orthodontic appliances",
+  "bodyLocation": "Mouth",
+  "preparation": "Initial consultation, X-rays, treatment planning",
+  "procedureType": "Non-surgical",
+  "howPerformed": "Braces or aligners are used to gradually move teeth into proper alignment",
+  "followup": "Regular adjustments and monitoring appointments",
+  "risks": "Minimal risks, temporary discomfort during adjustments",
+  "expectedPrognosis": "Excellent results with proper compliance and care"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalProcedure",
+  "name": "Cosmetic Dentistry",
+  "description": "Teeth whitening, veneers, and other cosmetic dental procedures",
+  "bodyLocation": "Mouth",
+  "preparation": "Consultation and treatment planning",
+  "procedureType": "Non-surgical",
+  "howPerformed": "Various cosmetic procedures to improve smile appearance",
+  "followup": "Maintenance appointments as needed",
+  "risks": "Minimal risks, temporary sensitivity",
+  "expectedPrognosis": "Excellent aesthetic results with proper care"
+}
 </script>
 
 {% endblock %}
