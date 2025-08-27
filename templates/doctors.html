@@ -429,39 +429,87 @@
 <!-- Schedule Consultation Section -->
 <section class="schedule-consultation">
     <div class="consultation-background">
-        <div class="consultation-particles"></div>
+        <div class="consultation-particles">
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-4"></div>
+            <div class="particle particle-5"></div>
+            <div class="particle particle-6"></div>
+        </div>
     </div>
     
     <div class="consultation-container">
         <div class="consultation-content">
-            <h2>Ready to Meet Our Expert Team?</h2>
-            <p>Schedule a consultation with our experienced dental professionals and discover personalized care that transforms smiles</p>
+            <div class="consultation-header">
+                <div class="header-decoration">
+                    <span class="decoration-line"></span>
+                    <span class="decoration-dot"></span>
+                    <span class="decoration-line"></span>
+                </div>
+                <h2 class="consultation-title">
+                    <span class="title-line">Ready to Meet Our</span>
+                    <span class="title-highlight">Expert Team?</span>
+                </h2>
+                <p class="consultation-subtitle">Schedule a consultation with our experienced dental professionals and discover personalized care that transforms smiles</p>
+            </div>
             
             <div class="consultation-benefits">
-                <div class="benefit-item">
-                    <span class="benefit-icon">✓</span>
+                <div class="benefit-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="benefit-icon-wrapper">
+                        <span class="benefit-icon">✓</span>
+                        <div class="icon-glow"></div>
+                    </div>
                     <span class="benefit-text">Comprehensive Consultation</span>
+                    <div class="benefit-hover-effect"></div>
                 </div>
-                <div class="benefit-item">
-                    <span class="benefit-icon">✓</span>
+                <div class="benefit-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="benefit-icon-wrapper">
+                        <span class="benefit-icon">✓</span>
+                        <div class="icon-glow"></div>
+                    </div>
                     <span class="benefit-text">Personalized Treatment Plan</span>
+                    <div class="benefit-hover-effect"></div>
                 </div>
-                <div class="benefit-item">
-                    <span class="benefit-icon">✓</span>
+                <div class="benefit-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="benefit-icon-wrapper">
+                        <span class="benefit-icon">✓</span>
+                        <div class="icon-glow"></div>
+                    </div>
                     <span class="benefit-text">Expert Recommendations</span>
+                    <div class="benefit-hover-effect"></div>
                 </div>
             </div>
             
             <div class="consultation-actions">
-                <a href="{{ url_for('appointment') }}" class="consultation-btn primary">
+                <a href="{{ url_for('appointment') }}" class="consultation-btn primary" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="btn-background"></div>
                     <span class="btn-text">Schedule Appointment</span>
                     <span class="btn-icon">📅</span>
                     <div class="btn-glow"></div>
+                    <div class="btn-ripple"></div>
                 </a>
-                <a href="{{ url_for('contact') }}" class="consultation-btn secondary">
+                <a href="{{ url_for('contact') }}" class="consultation-btn secondary" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="btn-background"></div>
                     <span class="btn-text">Contact Us</span>
                     <span class="btn-icon">📞</span>
+                    <div class="btn-ripple"></div>
                 </a>
+            </div>
+            
+            <div class="consultation-stats">
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="600">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Happy Patients</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="700">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="800">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Success Rate</div>
+                </div>
             </div>
         </div>
     </div>
