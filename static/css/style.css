@@ -7141,16 +7141,8 @@ a.skip-link {
     top: 6px;
 }
 
-/* Enhanced Focus States */
-.nav-link:focus,
-.appointment-btn:focus,
-.doctor-appointment-btn:focus,
-button:focus,
-a:focus {
-    outline: 2px solid #1fd8d8;
-    outline-offset: 2px;
-    border-radius: 4px;
-}
+/* Enhanced Focus States - Removed for navigation */
+/* Focus styles removed as requested */
 
 /* Improved Touch Targets for Mobile */
 @media (max-width: 768px) {
@@ -11997,12 +11989,8 @@ input:focus, textarea:focus, select:focus {
     }
 }
 
-/* Advanced Focus States */
-.nav-link:focus, .hero-btn:focus, .service-btn:focus {
-    outline: 2px solid #1fd8d8;
-    outline-offset: 2px;
-    box-shadow: 0 0 20px rgba(31, 216, 216, 0.4);
-}
+/* Advanced Focus States - Removed for navigation */
+/* Focus styles removed as requested */
 
 /* Enhanced Print Styles */
 @media print {
