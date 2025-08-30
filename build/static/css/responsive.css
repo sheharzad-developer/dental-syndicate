@@ -1,0 +1,55 @@
+/* Responsive enhancements for gallery sliders and images */
+
+/* Base mobile-first adjustments */
+.gallery-image{width:100%;height:auto;display:block;object-fit:cover;border-radius:12px}
+.slider{position:relative;width:100%;margin:20px auto;overflow:hidden;border-radius:16px;box-shadow:0 12px 32px rgba(0,0,0,0.2);max-width:1200px;box-sizing:border-box;background:#fff}
+.slider-viewport{width:100%;overflow:hidden;position:relative;border-radius:16px;background:#fff}
+.slider-track{display:flex;transition:transform 1.5s cubic-bezier(0.25, 0.1, 0.25, 1);width:100%}
+.slider .slide{position:relative;opacity:1;transition:all 1.2s cubic-bezier(0.25, 0.1, 0.25, 1);min-width:100%;flex-shrink:0}
+.slider .slide.active{opacity:1;transform:scale(1)}
+.slider .slide img{width:100%;height:400px;object-fit:contain;object-position:center;display:block;border-radius:8px;transition:transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);background:#f8f9fa}
+.slider .slide:hover img{transform:scale(1.05)}
+.slider .slide-caption, .slider .caption{position:absolute;left:20px;right:20px;bottom:20px;background:linear-gradient(135deg,rgba(0,0,0,0.8),rgba(0,0,0,0.6));color:#fff;padding:16px 20px;border-radius:12px;font-size:0.9rem;line-height:1.5;backdrop-filter:blur(12px);text-align:center;font-weight:500;letter-spacing:0.5px}
+.slider-arrow, .slider .nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.95);color:#2c3e50;border:none;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .4s cubic-bezier(0.25,0.46,0.45,0.94);box-shadow:0 6px 20px rgba(0,0,0,0.15);font-size:22px;font-weight:bold;backdrop-filter:blur(15px);z-index:10}
+.slider-arrow:hover, .slider .nav:hover{background:#fff;transform:translateY(-50%) scale(1.1);box-shadow:0 8px 25px rgba(0,0,0,0.3);color:#1a252f}
+.slider-prev, .slider .nav.prev{left:20px}
+.slider-next, .slider .nav.next{right:20px}
+.slider-dots, .slider .dots{position:absolute;left:0;right:0;bottom:20px;display:flex;gap:12px;justify-content:center;align-items:center;z-index:5}
+.slider-dots .dot, .slider .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.5);cursor:pointer;transition:all .3s ease;border:2px solid rgba(255,255,255,0.8)}
+.slider-dots .dot.active, .slider .dot.active{background:#fff;transform:scale(1.2);box-shadow:0 0 12px rgba(255,255,255,0.8)}
+
+/* Small devices */
+@media (max-width: 576px){
+  .slider{border-radius:12px;margin:15px 8px}
+  .slider .slide img{height:300px;object-fit:contain;object-position:center}
+  .slider .slide-caption, .slider .caption{font-size:0.8rem;padding:12px 16px;bottom:15px;left:15px;right:15px;border-radius:10px}
+  .slider-arrow, .slider .nav{width:44px;height:44px;font-size:18px}
+  .slider-prev, .slider .nav.prev{left:15px}
+  .slider-next, .slider .nav.next{right:15px}
+  .slider-dots, .slider .dots{bottom:15px;gap:10px}
+  .slider-dots .dot, .slider .dot{width:8px;height:8px}
+}
+
+/* Medium devices */
+@media (min-width: 577px) and (max-width: 991px){
+  .slider{border-radius:14px;margin:18px 12px}
+  .slider .slide img{height:350px;object-fit:contain;object-position:center}
+  .slider .slide-caption, .slider .caption{font-size:0.85rem;padding:14px 18px;bottom:18px;left:18px;right:18px}
+  .slider-arrow, .slider .nav{width:50px;height:50px;font-size:20px}
+  .slider-prev, .slider .nav.prev{left:18px}
+  .slider-next, .slider .nav.next{right:18px}
+  .slider-dots, .slider .dots{bottom:18px;gap:11px}
+  .slider-dots .dot, .slider .dot{width:9px;height:9px}
+}
+
+/* Large devices */
+@media (min-width: 992px){
+  .slider{border-radius:16px;margin:25px 0}
+  .slider .slide img{height:450px;object-fit:contain;object-position:center}
+  .slider .slide-caption, .slider .caption{font-size:1rem;padding:18px 24px;bottom:25px;left:25px;right:25px;max-width:70%;margin:0 auto;left:50%;transform:translateX(-50%)}
+  .slider-arrow, .slider .nav{width:60px;height:60px;font-size:24px}
+  .slider-prev, .slider .nav.prev{left:25px}
+  .slider-next, .slider .nav.next{right:25px}
+  .slider-dots, .slider .dots{bottom:25px;gap:14px}
+  .slider-dots .dot, .slider .dot{width:12px;height:12px}
+}

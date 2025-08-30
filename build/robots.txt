@@ -1,0 +1,65 @@
+# Robots.txt for Behzad Dental Clinic
+# https://behzaddentalclinic.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://behzaddentalclinic.com/sitemap.xml
+
+# Disallow admin areas and private content
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+Disallow: /venv/
+Disallow: /__pycache__/
+Disallow: /*.py$
+Disallow: /*.pyc$
+Disallow: /*.log$
+Disallow: /error/
+Disallow: /404/
+Disallow: /500/
+
+# Allow important pages and resources
+Allow: /
+Allow: /about
+Allow: /doctors
+Allow: /gallery
+Allow: /contact
+Allow: /appointment
+Allow: /services/
+Allow: /static/css/
+Allow: /static/js/
+Allow: /static/images/
+Allow: /static/sitemap.xml
+Allow: /static/robots.txt
+
+# Specific rules for different bots
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Crawl delay for all other bots
+Crawl-delay: 1

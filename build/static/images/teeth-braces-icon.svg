@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="48" height="48">
+  <!-- Teeth with braces icon -->
+  <defs>
+    <style>
+      .tooth { fill: #f0f0f0; stroke: #000; stroke-width: 12; }
+      .brace { fill: #333; stroke: #000; stroke-width: 2; }
+      .wire { stroke: #333; stroke-width: 4; fill: none; }
+    </style>
+  </defs>
+  
+  <!-- Left tooth -->
+  <path class="tooth" d="M100 140 C80 140, 70 160, 70 180 L70 220 C70 240, 75 260, 85 280 L95 320 C100 340, 105 360, 115 380 C120 390, 130 390, 135 380 C145 360, 150 340, 155 320 L165 280 C175 260, 180 240, 180 220 L180 180 C180 160, 170 140, 150 140 Z"/>
+  
+  <!-- Right tooth -->
+  <path class="tooth" d="M330 140 C310 140, 300 160, 300 180 L300 220 C300 240, 305 260, 315 280 L325 320 C330 340, 335 360, 345 380 C350 390, 360 390, 365 380 C375 360, 380 340, 385 320 L395 280 C405 260, 410 240, 410 220 L410 180 C410 160, 400 140, 380 140 Z"/>
+  
+  <!-- Left tooth roots -->
+  <path class="tooth" d="M115 380 C120 400, 125 420, 130 440 C135 450, 140 450, 145 440 C150 420, 155 400, 160 380"/>
+  <path class="tooth" d="M90 380 C95 400, 100 420, 105 440 C110 450, 115 450, 120 440 C125 420, 130 400, 135 380"/>
+  
+  <!-- Right tooth roots -->
+  <path class="tooth" d="M345 380 C350 400, 355 420, 360 440 C365 450, 370 450, 375 440 C380 420, 385 400, 390 380"/>
+  <path class="tooth" d="M320 380 C325 400, 330 420, 335 440 C340 450, 345 450, 350 440 C355 420, 360 400, 365 380"/>
+  
+  <!-- Left brace bracket -->
+  <rect class="brace" x="140" y="190" width="20" height="30" rx="3"/>
+  
+  <!-- Right brace bracket -->
+  <rect class="brace" x="340" y="190" width="20" height="30" rx="3"/>
+  
+  <!-- Wire connecting braces -->
+  <line class="wire" x1="60" y1="205" x2="450" y2="205"/>
+  
+  <!-- Wire attachment points -->
+  <circle class="brace" cx="150" cy="205" r="3"/>
+  <circle class="brace" cx="350" cy="205" r="3"/>
+</svg>
